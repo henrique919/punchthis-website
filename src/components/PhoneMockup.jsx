@@ -1,0 +1,74 @@
+/**
+ * PhoneMockup — reusable phone frame.
+ * Pass a screen component as `children`.
+ * `maxWidth` controls the rendered width (default 240px).
+ * `label` — accessible aria-label for the device.
+ */
+export default function PhoneMockup({ children, maxWidth = 240, label = 'App screenshot', style = {} }) {
+  // 390 × 844 native ratio
+  const ratio = 844 / 390
+
+  return (
+    <div
+      role="img"
+      aria-label={label}
+      style={{
+        width: maxWidth,
+        maxWidth: '100%',
+        position: 'relative',
+        flexShrink: 0,
+        ...style,
+      }}
+    >
+      {/* Outer hardware frame */}
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        paddingTop: `${ratio * 100}%`,
+        borderRadius: '12.5%',
+        background: 'linear-gradient(160deg, #2A2A2A 0%, #111 50%, #1E1E1E 100%)',
+        boxShadow: '0 2px 0 #555 inset, 0 -2px 0 #000 inset, 0 24px 64px rgba(0,0,0,0.45), 0 8px 20px rgba(0,0,0,0.3)',
+      }}>
+        {/* Side buttons */}
+        <div style={{ position:'absolute', left:'-2.5%', top:'22%', width:'2.5%', height:'8%', background:'#333', borderRadius:'2px 0 0 2px', boxShadow:'-1px 0 2px rgba(0,0,0,0.4)' }} aria-hidden="true" />
+        <div style={{ position:'absolute', left:'-2.5%', top:'33%', width:'2.5%', height:'12%', background:'#2E2E2E', borderRadius:'2px 0 0 2px', boxShadow:'-1px 0 2px rgba(0,0,0,0.4)' }} aria-hidden="true" />
+        <div style={{ position:'absolute', left:'-2.5%', top:'47%', width:'2.5%', height:'12%', background:'#2E2E2E', borderRadius:'2px 0 0 2px', boxShadow:'-1px 0 2px rgba(0,0,0,0.4)' }} aria-hidden="true" />
+        <div style={{ position:'absolute', right:'-2.5%', top:'30%', width:'2.5%', height:'16%', background:'#2A2A2A', borderRadius:'0 2px 2px 0', boxShadow:'1px 0 2px rgba(0,0,0,0.4)' }} aria-hidden="true" />
+
+        {/* Bezel inset */}
+        <div style={{
+          position: 'absolute',
+          inset: '3%',
+          borderRadius: '10%',
+          background: '#0A0A0A',
+          overflow: 'hidden',
+        }}>
+          {/* Notch / dynamic island */}
+          <div style={{
+            position:'absolute', top:'1.5%', left:'50%',
+            transform:'translateX(-50%)',
+            width:'28%', height:'3.2%',
+            background:'#111', borderRadius:'999px', zIndex: 10,
+          }} aria-hidden="true" />
+
+          {/* Screen content area — children render at 390×844 virtual coords */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            overflow: 'hidden',
+            borderRadius: '10%',
+          }}>
+            <svg
+              viewBox="0 0 390 844"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ width: '100%', height: '100%', display: 'block' }}
+              aria-hidden="true"
+            >
+              {children}
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
