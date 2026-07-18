@@ -124,7 +124,7 @@ export default function Hero() {
           letter-spacing: -0.025em;
         }
         .hero-body { font-size: 18px; color: #B0BBC5; line-height: 1.65; max-width: 480px; }
-        .hero-audience { font-size: 14px; color: #6B7C89; font-weight: 500; }
+        .hero-audience { font-size: 14px; color: #8B9BAA; font-weight: 500; }
         .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
         .hero-cta-primary { font-size: 16px; padding: 15px 28px; }
         .hero-reassurance { font-size: 13px; color: #5A6B79; font-weight: 600; letter-spacing: 0.03em; margin-top: -4px; }

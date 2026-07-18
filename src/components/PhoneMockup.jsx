@@ -25,7 +25,7 @@ export default function PhoneMockup({ children, maxWidth = 240, label = 'App scr
         position: 'relative',
         width: '100%',
         paddingTop: `${ratio * 100}%`,
-        borderRadius: '12.5%',
+        borderRadius: '18% / 8.3%',
         background: 'linear-gradient(160deg, #2A2A2A 0%, #111 50%, #1E1E1E 100%)',
         boxShadow: '0 2px 0 #555 inset, 0 -2px 0 #000 inset, 0 24px 64px rgba(0,0,0,0.45), 0 8px 20px rgba(0,0,0,0.3)',
       }}>
@@ -39,7 +39,7 @@ export default function PhoneMockup({ children, maxWidth = 240, label = 'App scr
         <div style={{
           position: 'absolute',
           inset: '3%',
-          borderRadius: '10%',
+          borderRadius: '16% / 7.4%',
           background: '#0A0A0A',
           overflow: 'hidden',
         }}>
@@ -56,7 +56,7 @@ export default function PhoneMockup({ children, maxWidth = 240, label = 'App scr
             position: 'absolute',
             inset: 0,
             overflow: 'hidden',
-            borderRadius: '10%',
+            borderRadius: '16% / 7.4%',
           }}>
             <svg
               viewBox="0 0 390 844"

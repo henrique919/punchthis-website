@@ -50,11 +50,14 @@ export default function ReportShowcase() {
         .reports-section { background: var(--slate); }
         .reports-inner {
           display: grid;
-          grid-template-columns: 1fr auto;
+          grid-template-columns: minmax(0, 1fr) auto;
           gap: 72px;
           align-items: center;
         }
-        .reports-copy { display: flex; flex-direction: column; gap: 22px; }
+        .reports-copy {
+          display: flex; flex-direction: column; gap: 22px;
+          width: 100%; min-width: 0;
+        }
         .reports-headline { font-size: clamp(28px, 3.5vw, 44px); color: var(--white); }
         .reports-body { font-size: 17px; color: #9DA9B4; line-height: 1.7; max-width: 440px; }
         .reports-benefits { display: flex; flex-direction: column; gap: 12px; }
@@ -64,19 +67,21 @@ export default function ReportShowcase() {
         }
         .reports-phones {
           display: flex; gap: 20px; align-items: flex-end;
+          width: 100%; min-width: 0;
         }
-        .report-phone-a { transform: rotate(-3deg); filter: brightness(0.9); }
-        .report-phone-b { transform: rotate(2deg); }
+        .report-phone-a { transform: rotate(-3deg); filter: brightness(0.9); flex-shrink: 1; min-width: 0; }
+        .report-phone-b { transform: rotate(2deg); flex-shrink: 1; min-width: 0; }
         @media (max-width: 1024px) {
-          .reports-inner { grid-template-columns: 1fr; gap: 48px; }
+          .reports-inner { grid-template-columns: minmax(0, 1fr); gap: 48px; }
           .reports-phones { justify-content: center; }
           .reports-copy { align-items: center; text-align: center; }
           .reports-benefits { align-items: center; }
           .reports-body { max-width: 100%; }
         }
         @media (max-width: 480px) {
-          .reports-phones { gap: 12px; }
-          .report-phone-a, .report-phone-b { width: 45%; }
+          .reports-phones { gap: 10px; justify-content: center; }
+          .report-phone-a { width: calc(50vw - 28px); max-width: 160px; }
+          .report-phone-b { width: calc(50vw - 28px); max-width: 160px; }
         }
       `}</style>
     </section>

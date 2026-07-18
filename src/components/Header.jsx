@@ -108,6 +108,7 @@ export default function Header() {
         .site-header.dark-mode .nav-link:hover,
         .site-header.dark-mode .nav-link.active { color: #fff; }
         .site-header.dark-mode .sign-in-link { color: #8B97A1; }
+        .site-header.dark-mode .hamburger { color: #fff; }
 
         .header-inner {
           display: flex; align-items: center; gap: 16px;
