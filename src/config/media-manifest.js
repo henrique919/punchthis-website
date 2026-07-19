@@ -10,7 +10,7 @@
 
 export const SOURCE_APP = {
   repo: 'henrique919/audit-snap-663',
-  commit: '409ff0e0e019814fe592a95b53f34c46731d61b7', // re-captured after real photos replaced the synthetic gradient seed placeholders — see PUNCHTHIS_MARKETING_LOOP.md
+  commit: '5b316ee7caefcd84218527972126e42aebf4e0e0', // re-captured after fixing the "red on red" annotation-label/SAMPLE-band collision — see PUNCHTHIS_MARKETING_LOOP.md
   branch: 'claude/punchthis-design-review-vxgpzk',
   buildCommand: 'cd expo && npm run build:web',
 }
