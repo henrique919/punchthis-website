@@ -3,13 +3,16 @@
 /* 1. Custom properties */
 :root {
   /* Brand colours */
-  --cobalt: #4C82FF;
-  --cobalt-deep: #2F6BFF;
+  --cobalt: #4C82FF;         /* decorative/large-scale only - 3.53:1 on white, fails AA text */
+  --cobalt-deep: #2857D6;    /* white-on-cobalt fills (buttons, active chips) - matches the app's cobaltDeep token, 6.13:1 */
+  --cobalt-deeper: #2449B8;  /* hover/pressed state for cobalt-deep fills - 7.72:1 */
   --cobalt-soft: #EAF1FF;
   --ink: #1C232B;
   --carbon: #12181F;
   --slate: #22303C;
-  --steel: #7E8B96;
+  --steel: #7E8B96;          /* decorative/border/icon use only - 3.49:1 on white, fails AA text */
+  --steel-text: #616B78;     /* steel-as-text on light surfaces - matches the app's textFaint token, >=4.5:1 */
+  --muted-on-dark: #96A0A9;  /* faint text on carbon/ink/slate surfaces - matches the app's textFaintOnDark token */
   --muted: #69747D;
   --border: #DDE3E8;
   --mist: #F2F4F6;
@@ -125,12 +128,12 @@ ul { list-style: none; }
 .btn:focus-visible { outline-offset: 3px; }
 
 .btn-primary {
-  background: var(--cobalt);
+  background: var(--cobalt-deep);
   color: var(--white);
   box-shadow: 0 4px 16px rgba(76, 130, 255, 0.35);
 }
 .btn-primary:hover {
-  background: var(--cobalt-deep);
+  background: var(--cobalt-deeper);
   box-shadow: 0 6px 22px rgba(76, 130, 255, 0.45);
   transform: translateY(-1px);
 }

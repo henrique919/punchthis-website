@@ -88,7 +88,7 @@ export default function MarkupShowcase() {
 
         .tool-label {
           font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
-          text-transform: uppercase; color: var(--steel); margin-bottom: 10px;
+          text-transform: uppercase; color: var(--steel-text); margin-bottom: 10px;
         }
         .tool-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
         .tool-tab {
@@ -98,7 +98,7 @@ export default function MarkupShowcase() {
         }
         .tool-tab:hover { border-color: var(--cobalt); color: var(--cobalt); }
         .tool-tab.active { background: var(--cobalt); color: #fff; border-color: var(--cobalt); }
-        .tool-desc { font-size: 13px; color: var(--steel); min-height: 20px; }
+        .tool-desc { font-size: 13px; color: var(--steel-text); min-height: 20px; }
 
         .markup-benefits { display: flex; flex-direction: column; gap: 16px; }
         .markup-benefit { display: flex; gap: 14px; align-items: flex-start; }

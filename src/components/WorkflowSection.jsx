@@ -84,7 +84,7 @@ export default function WorkflowSection() {
         .workflow-section { background: var(--white); }
         .workflow-header { text-align: center; margin-bottom: 72px; }
         .workflow-headline { font-size: clamp(28px, 3.5vw, 46px); color: var(--ink); }
-        .workflow-subline { font-size: 17px; color: var(--steel); margin-top: 12px; }
+        .workflow-subline { font-size: 17px; color: var(--steel-text); margin-top: 12px; }
 
         .workflow-track { display: none; }
 
@@ -111,7 +111,7 @@ export default function WorkflowSection() {
         }
         .step-badge {
           font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
-          text-transform: uppercase; color: var(--steel); padding: 3px 10px;
+          text-transform: uppercase; color: var(--steel-text); padding: 3px 10px;
           border: 1.5px solid var(--border); border-radius: 999px;
         }
         .step-title { font-size: clamp(20px, 2.5vw, 28px); color: var(--ink); }
@@ -125,7 +125,7 @@ export default function WorkflowSection() {
         .sample-text {
           font-size: 13px; font-weight: 600; color: var(--ink);
         }
-        .sample-text.muted { color: var(--steel); }
+        .sample-text.muted { color: var(--steel-text); }
 
         @media (max-width: 900px) {
           .workflow-step,

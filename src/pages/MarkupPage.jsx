@@ -81,7 +81,7 @@ function ToolDemo() {
         .tool-phone { display: flex; justify-content: center; position: sticky; top: 100px; }
         .tool-content { display: flex; flex-direction: column; gap: 28px; }
         .tool-demo-heading { font-size: clamp(26px, 3vw, 40px); color: var(--ink); }
-        .tool-demo-sub { font-size: 16px; color: var(--steel); }
+        .tool-demo-sub { font-size: 16px; color: var(--steel-text); }
         .tool-selector { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
         .tool-card {
           display: flex; align-items: center; gap: 12px;
