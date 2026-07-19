@@ -54,4 +54,14 @@ export const APP_SCREENS = {
     route: '/audit/[id]/preview',
     label: 'PDF report preview: cover, status summary and hit list preview',
   },
+  issueOriginal: {
+    file: 'issue-original.png',
+    route: 'expo/assets/seed/issue-08-switchboard.png',
+    label: 'Original (pre-markup) sample photo for issue #008, cropped from the app\'s own bundled seed asset — not captured via Playwright like the others',
+  },
+  issueAnnotated: {
+    file: 'issue-annotated.png',
+    route: '/markup/[assetId]',
+    label: 'The same issue #008 photo after real arrow/box/circle/text annotation, cropped from the markup-studio.png capture to isolate the photo card',
+  },
 }

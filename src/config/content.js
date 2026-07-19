@@ -32,7 +32,7 @@ export const HERO = {
   body: 'Capture defects, mark up the exact issue, assign the work and send a professional report—before you leave site.',
   audienceLine: 'For inspections, snagging, punch lists and handovers across Australia, the UK and the US.',
   primaryCta:  { label: 'Get early access',  href: '/early-access' },
-  secondaryCta:{ label: 'See how it works',  href: '/how-it-works' },
+  secondaryCta:{ label: 'View a sample report', href: '/#sample-report' },
   reassurance: 'Built for fast, phone-first field work.',
 }
 

@@ -28,6 +28,18 @@ export default function Hero() {
 
   const lines = HERO.headline.split('\n')
 
+  // react-router's <Link> does client-side navigation and won't trigger the
+  // browser's native scroll-to-hash — handle same-page anchors ourselves.
+  function handleSecondaryCta(e) {
+    const hashIndex = HERO.secondaryCta.href.indexOf('#')
+    if (hashIndex === -1) return
+    const target = document.getElementById(HERO.secondaryCta.href.slice(hashIndex + 1))
+    if (target) {
+      e.preventDefault()
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
     <section
       ref={heroRef}
@@ -56,7 +68,7 @@ export default function Hero() {
               {HERO.primaryCta.label}
               <ArrowRight size={17} />
             </Link>
-            <Link to={HERO.secondaryCta.href} className="btn btn-ghost">
+            <Link to={HERO.secondaryCta.href} onClick={handleSecondaryCta} className="btn btn-ghost">
               {HERO.secondaryCta.label}
             </Link>
           </div>

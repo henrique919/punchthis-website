@@ -9,7 +9,7 @@ import reportPreviewImg from '../assets/app-screens/report-preview.png'
 export default function ReportShowcase() {
   const ref = useReveal()
   return (
-    <section ref={ref} id="reports" className="reports-section section" aria-labelledby="reports-heading">
+    <section ref={ref} id="sample-report" className="reports-section section" aria-labelledby="reports-heading">
       <div className="container reports-inner">
         {/* Copy column */}
         <div className="reports-copy">
@@ -43,7 +43,7 @@ export default function ReportShowcase() {
       </div>
 
       <style>{`
-        .reports-section { background: var(--slate); }
+        .reports-section { background: var(--slate); scroll-margin-top: 84px; }
         .reports-inner {
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;
