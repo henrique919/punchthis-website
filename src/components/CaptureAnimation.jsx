@@ -3,37 +3,41 @@ import { Camera, Check } from 'lucide-react'
 import captureSessionImg from '../assets/app-screens/capture-session.png'
 import issueOriginalImg from '../assets/app-screens/issue-original.png'
 
-// Same coordinates as the real issue #008 annotation (audit-snap-663
-// lib/seed.ts) so the final frame matches the real Markup Studio
-// screenshot exactly, not an invented mark-up.
-const BOX = { x: 0.1, y: 0.16, w: 0.36, h: 0.34 }
-const ARROW = { x1: 0.6, y1: 0.6, x2: 0.4, y2: 0.42 }
-const LABEL = { x: 0.72, y: 0.6 }
+// A fresh composition for this full-bleed vertical crop, not the exact
+// static seed-data coordinates (those assume the photo's own 4:3 shape,
+// which doesn't fit a phone screen without either cropping or letterboxing
+// — see the commit message for why full-bleed won this trade-off). Same
+// real photo, same real defect area (the drain/floor region), same
+// "Door left open" text as the actual issue #008 record — just recomposed
+// so the box/arrow/label all land inside what's actually visible after
+// the crop, instead of running off both edges of the frame.
+const BOX = { x: 0.16, y: 0.3, w: 0.68, h: 0.24 }
+const ARROW = { x1: 0.78, y1: 0.68, x2: 0.62, y2: 0.55 }
+const LABEL = { x: 0.5, y: 0.8 }
+const PHOTO_OBJECT_POSITION = '30% 42%'
 
 const PHASES = [
-  { name: 'idle', duration: 1600 },
+  { name: 'idle', duration: 1900 },
   { name: 'press', duration: 160 },
-  { name: 'flash', duration: 180 },
+  { name: 'viewfinder', duration: 550 },
+  { name: 'hold', duration: 950 },
+  { name: 'flash', duration: 150 },
   { name: 'capture', duration: 550 },
   { name: 'settle', duration: 350 },
-  { name: 'arrow', duration: 700 },
-  { name: 'box', duration: 500 },
-  { name: 'text', duration: 600 },
-  { name: 'saved', duration: 750 },
-  { name: 'hold', duration: 1300 },
+  { name: 'arrow', duration: 950 },
+  { name: 'box', duration: 600 },
+  { name: 'text', duration: 700 },
+  { name: 'saved', duration: 850 },
+  { name: 'final', duration: 1700 },
 ]
-// Index of the first "photo" phase (before this: capture-session screen;
-// from this on: the plain-then-annotated photo).
-const PHOTO_FROM = PHASES.findIndex((p) => p.name === 'capture')
 const ORDER = PHASES.map((p) => p.name)
 const atOrAfter = (phase, name) => ORDER.indexOf(phase) >= ORDER.indexOf(name)
 
 /**
- * Looping capture -> markup -> save demo, built from real screenshots and
- * the app's actual annotation coordinates (not an invented UI). Purely
- * decorative (aria-hidden) - the surrounding copy/headings carry the real
- * information for screen readers. Under prefers-reduced-motion this
- * renders the single completed frame, no looping/motion at all.
+ * Looping capture -> markup -> save demo, built from real screenshots.
+ * Purely decorative (aria-hidden) - the surrounding copy/headings carry
+ * the real information for screen readers. Under prefers-reduced-motion
+ * this renders the single completed frame, no looping/motion at all.
  */
 export default function CaptureAnimation({ maxWidth = 260 }) {
   const [phaseIndex, setPhaseIndex] = useState(0)
@@ -56,8 +60,9 @@ export default function CaptureAnimation({ maxWidth = 260 }) {
     return () => clearTimeout(timeoutRef.current)
   }, [phaseIndex, reducedMotion])
 
-  const phase = reducedMotion ? 'hold' : PHASES[phaseIndex].name
-  const showPhoto = reducedMotion || phaseIndex >= PHOTO_FROM
+  const phase = reducedMotion ? 'final' : PHASES[phaseIndex].name
+  const showCamera = reducedMotion || atOrAfter(phase, 'viewfinder')
+  const showShutterBtn = !reducedMotion && !atOrAfter(phase, 'flash')
   const ratio = 844 / 390
 
   return (
@@ -78,59 +83,57 @@ export default function CaptureAnimation({ maxWidth = 260 }) {
 
         <div style={{ position: 'absolute', inset: '3%', borderRadius: '16% / 7.4%', background: '#0A0A0A', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', borderRadius: '16% / 7.4%' }}>
-            {/* Capture-session background, visible until the shutter fires */}
+            {/* List screen, visible until the camera opens */}
             <img
               src={captureSessionImg}
               alt=""
               style={{
                 position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
-                opacity: showPhoto ? 0 : 1,
-                transition: 'opacity 200ms ease',
+                opacity: showCamera ? 0 : 1,
+                transition: 'opacity 260ms ease',
               }}
             />
-            {/* Markup Studio header text, fills the space above the photo
-                card once we're past the capture moment */}
-            <div style={{
-              position: 'absolute', top: '6%', left: 0, right: 0, textAlign: 'center',
-              color: '#fff', fontSize: 12, fontWeight: 700,
-              opacity: showPhoto ? 1 : 0,
-              transition: 'opacity 250ms ease 120ms',
-            }}>
-              Markup Studio
-            </div>
 
-            {/* The photo card — sized to the photo's own aspect ratio and
-                centered (matching how the real Markup Studio letterboxes
-                its canvas, not a full-bleed crop) so the box/arrow below
-                map onto it without distortion. Appears with a tilt+settle,
-                then carries the markup. */}
+            {/* Camera opens on the real photo, full-bleed like an actual
+                viewfinder/photo view - holds, then the shutter fires and
+                the same frame carries the markup. */}
             <div style={{
-              position: 'absolute', left: '50%', top: '52%', width: '82%', aspectRatio: '374 / 281',
-              transform: `translate(-50%, -50%) ${phase === 'capture' ? 'rotate(-6deg) scale(0.92)' : 'rotate(0deg) scale(1)'}`,
-              opacity: showPhoto ? 1 : 0,
-              transition: 'opacity 180ms ease, transform 480ms cubic-bezier(0.22, 1, 0.36, 1)',
-              borderRadius: 6, overflow: 'hidden', boxShadow: '0 10px 28px rgba(0,0,0,0.45)',
+              position: 'absolute', inset: 0,
+              opacity: showCamera ? 1 : 0,
+              transform: phase === 'capture' ? 'scale(1.035) rotate(-1.5deg)' : 'scale(1) rotate(0deg)',
+              transition: 'opacity 350ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1)',
             }}>
-              <img src={issueOriginalImg} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img
+                src={issueOriginalImg}
+                alt=""
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: PHOTO_OBJECT_POSITION, display: 'block' }}
+              />
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
+                <defs>
+                  <marker id="capAnimArrowhead" markerWidth="10" markerHeight="10" refX="4" refY="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#C62828" />
+                  </marker>
+                </defs>
                 <rect
                   x={BOX.x * 100} y={BOX.y * 100} width={BOX.w * 100} height={BOX.h * 100}
-                  fill="none" stroke="#E53935" strokeWidth="1.2" vectorEffect="non-scaling-stroke"
+                  fill="none" stroke="#C62828" strokeWidth="1.1" vectorEffect="non-scaling-stroke"
                   style={{
                     transformOrigin: `${(BOX.x + BOX.w / 2) * 100}% ${(BOX.y + BOX.h / 2) * 100}%`,
                     transform: atOrAfter(phase, 'box') ? 'scale(1)' : 'scale(0.6)',
                     opacity: atOrAfter(phase, 'box') ? 1 : 0,
-                    transition: 'transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 200ms ease',
+                    transition: 'transform 340ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 220ms ease',
                   }}
                 />
                 <line
                   x1={ARROW.x1 * 100} y1={ARROW.y1 * 100} x2={ARROW.x2 * 100} y2={ARROW.y2 * 100}
-                  stroke="#E53935" strokeWidth="1.4" strokeLinecap="round" vectorEffect="non-scaling-stroke"
+                  stroke="#C62828" strokeWidth="1.6" strokeLinecap="round" vectorEffect="non-scaling-stroke"
+                  markerEnd="url(#capAnimArrowhead)"
                   pathLength="1"
                   style={{
                     strokeDasharray: 1,
                     strokeDashoffset: atOrAfter(phase, 'arrow') ? 0 : 1,
-                    transition: 'stroke-dashoffset 550ms ease-out',
+                    opacity: atOrAfter(phase, 'arrow') ? 1 : 0,
+                    transition: 'stroke-dashoffset 750ms ease-out, opacity 60ms ease',
                   }}
                 />
               </svg>
@@ -140,9 +143,10 @@ export default function CaptureAnimation({ maxWidth = 260 }) {
                   left: `${LABEL.x * 100}%`, top: `${LABEL.y * 100}%`,
                   transform: `translate(-50%, -50%) scale(${atOrAfter(phase, 'text') ? 1 : 0.7})`,
                   opacity: atOrAfter(phase, 'text') ? 1 : 0,
-                  transition: 'transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 220ms ease',
-                  background: '#E53935', color: '#fff', fontSize: 10, fontWeight: 800,
-                  padding: '4px 8px', borderRadius: 4, whiteSpace: 'nowrap',
+                  transition: 'transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 230ms ease',
+                  background: '#C62828', color: '#fff', fontSize: 12, fontWeight: 800,
+                  padding: '5px 10px', borderRadius: 5, whiteSpace: 'nowrap',
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.35)',
                 }}
               >
                 Door left open
@@ -153,15 +157,25 @@ export default function CaptureAnimation({ maxWidth = 260 }) {
             <div style={{
               position: 'absolute', inset: 0, background: '#fff',
               opacity: phase === 'flash' ? 0.92 : 0,
-              transition: phase === 'flash' ? 'opacity 60ms ease-out' : 'opacity 260ms ease-in',
+              transition: phase === 'flash' ? 'opacity 55ms ease-out' : 'opacity 300ms ease-in',
               pointerEvents: 'none',
             }} />
 
-            {/* Camera button, tap feedback, saved pulse */}
+            {/* Markup Studio header, once we're in the markup phases */}
+            <div style={{
+              position: 'absolute', top: '5%', left: 0, right: 0, textAlign: 'center',
+              color: '#fff', fontSize: 12, fontWeight: 700, textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+              opacity: atOrAfter(phase, 'arrow') ? 1 : 0,
+              transition: 'opacity 300ms ease 100ms',
+            }}>
+              Markup Studio
+            </div>
+
+            {/* Camera button, tap feedback */}
             <div style={{
               position: 'absolute', left: '50%', bottom: '9%', transform: 'translateX(-50%)',
-              opacity: showPhoto ? 0 : 1,
-              transition: 'opacity 150ms ease',
+              opacity: showShutterBtn ? 1 : 0,
+              transition: 'opacity 200ms ease',
             }}>
               <div style={{
                 width: 46, height: 46, borderRadius: '50%',
@@ -173,13 +187,15 @@ export default function CaptureAnimation({ maxWidth = 260 }) {
                 <Camera size={18} color="#12181F" />
               </div>
             </div>
+
+            {/* Saved pulse */}
             <div style={{
-              position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)',
+              position: 'absolute', left: '50%', top: '38%', transform: 'translate(-50%, -50%)',
               width: 44, height: 44, borderRadius: '50%', background: 'rgba(30,158,90,0.95)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               opacity: phase === 'saved' ? 1 : 0,
               scale: phase === 'saved' ? 1 : 0.5,
-              transition: 'opacity 180ms ease, scale 220ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+              transition: 'opacity 190ms ease, scale 230ms cubic-bezier(0.34, 1.56, 0.64, 1)',
             }}>
               <Check size={22} color="#fff" strokeWidth={3} />
             </div>
