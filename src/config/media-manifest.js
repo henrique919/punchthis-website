@@ -10,7 +10,7 @@
 
 export const SOURCE_APP = {
   repo: 'henrique919/audit-snap-663',
-  commit: 'ec6b0a137254dee7f5e0195704c5187adc097fa0', // re-captured after the notch-overlay fix and the issue #008 markup cleanup — see PUNCHTHIS_MARKETING_LOOP.md
+  commit: '409ff0e0e019814fe592a95b53f34c46731d61b7', // re-captured after real photos replaced the synthetic gradient seed placeholders — see PUNCHTHIS_MARKETING_LOOP.md
   branch: 'claude/punchthis-design-review-vxgpzk',
   buildCommand: 'cd expo && npm run build:web',
 }
@@ -56,8 +56,8 @@ export const APP_SCREENS = {
   },
   issueOriginal: {
     file: 'issue-original.png',
-    route: 'expo/assets/seed/issue-08-switchboard.png',
-    label: 'Original (pre-markup) sample photo for issue #008, cropped from the app\'s own bundled seed asset — not captured via Playwright like the others',
+    route: 'expo/assets/seed/issue-08-switchboard.jpg',
+    label: 'Original (pre-markup) sample photo for issue #008 — a real construction photo, see expo/assets/seed/PROVENANCE.md in the app repo for its source',
   },
   issueAnnotated: {
     file: 'issue-annotated.png',
