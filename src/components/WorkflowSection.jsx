@@ -1,17 +1,16 @@
 import { useReveal } from '../hooks/useReveal'
 import PhoneMockup from './PhoneMockup'
-import CameraScreen from '../screens/CameraScreen'
-import MarkupScreen from '../screens/MarkupScreen'
-import IssueDetailScreen from '../screens/IssueDetailScreen'
-import ReportBuilderScreen from '../screens/ReportBuilderScreen'
 import { WORKFLOW_STEPS } from '../config/content'
+import captureSessionImg from '../assets/app-screens/capture-session.png'
+import markupStudioImg from '../assets/app-screens/markup-studio.png'
+import issueDetailImg from '../assets/app-screens/issue-detail.png'
+import reportBuilderImg from '../assets/app-screens/report-builder.png'
 
-function ScreenForStep({ screen }) {
-  if (screen === 'camera')  return <CameraScreen />
-  if (screen === 'markup')  return <MarkupScreen activeTool="circle" />
-  if (screen === 'issue')   return <IssueDetailScreen />
-  if (screen === 'report')  return <ReportBuilderScreen />
-  return null
+const IMAGE_FOR_STEP = {
+  camera: captureSessionImg,
+  markup: markupStudioImg,
+  issue: issueDetailImg,
+  report: reportBuilderImg,
 }
 
 export default function WorkflowSection() {
@@ -35,9 +34,7 @@ export default function WorkflowSection() {
             <article key={step.number} className={`workflow-step reveal${i % 2 === 1 ? ' step-alt' : ''}`}>
               {/* Phone */}
               <div className="step-phone">
-                <PhoneMockup maxWidth={210} label={`Step ${step.number} — ${step.title}`}>
-                  <ScreenForStep screen={step.screen} />
-                </PhoneMockup>
+                <PhoneMockup maxWidth={210} label={`Real PunchThis screen — step ${step.number}, ${step.title}`} image={IMAGE_FOR_STEP[step.screen]} />
               </div>
 
               {/* Copy */}
@@ -49,29 +46,29 @@ export default function WorkflowSection() {
                 <h3 className="step-title">{step.title}</h3>
                 <p className="step-body">{step.body}</p>
 
-                {/* Authentic UI text from the app */}
+                {/* Real sample data from the screenshot above (Sample — Harbourview Apartments Stage 2) */}
                 {step.screen === 'camera' && (
                   <div className="step-sample">
-                    <span className="sample-chip chip chip-open"><span className="chip-dot" style={{background:'#C93B3B'}}/>Open</span>
-                    <span className="sample-text">New issue from photo</span>
+                    <span className="sample-chip chip chip-cobalt"><span className="chip-dot" style={{background:'#4C82FF'}}/>8 issues</span>
+                    <span className="sample-text">Pre-Handover Site Walk</span>
                   </div>
                 )}
                 {step.screen === 'markup' && (
                   <div className="step-sample">
-                    <span className="sample-text">"Cracked plaster to ceiling"</span>
+                    <span className="sample-text">"Door left open"</span>
                   </div>
                 )}
                 {step.screen === 'issue' && (
                   <div className="step-sample">
                     <span className="sample-chip chip chip-open"><span className="chip-dot" style={{background:'#C93B3B'}}/>High</span>
-                    <span className="sample-text">J. Powell · Plastering</span>
-                    <span className="sample-text muted">Level 2 — Unit 6</span>
+                    <span className="sample-text">Sparks Electrical</span>
+                    <span className="sample-text muted">Level 1 Corridor</span>
                   </div>
                 )}
                 {step.screen === 'report' && (
                   <div className="step-sample">
-                    <span className="sample-chip chip chip-cobalt"><span className="chip-dot" style={{background:'#4C82FF'}}/>31 issues</span>
-                    <span className="sample-text">Preview PDF · share</span>
+                    <span className="sample-chip chip chip-cobalt"><span className="chip-dot" style={{background:'#4C82FF'}}/>8 issues</span>
+                    <span className="sample-text">Client · Site Walk · Handover</span>
                   </div>
                 )}
               </div>
