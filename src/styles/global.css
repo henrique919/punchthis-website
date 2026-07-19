@@ -192,7 +192,11 @@ ul { list-style: none; }
 .chip-review { background: var(--review-soft);  color: #5B41C0;        }
 .chip-ok     { background: var(--success-soft); color: #177A46;        }
 
-/* 6. Reveal animations */
+/* 6. Reveal animations — content is visible by default. The hidden
+   starting state is opt-in, scoped under html.js-reveal-ready, which
+   useReveal.js only adds once it has actually set up an IntersectionObserver
+   (with its own failsafe timeout). No-JS, slow-JS and broken-observer cases
+   all render fully visible content instead of a permanently blank section. */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -202,20 +206,20 @@ ul { list-style: none; }
   to   { opacity: 1; }
 }
 
-.reveal {
+.js-reveal-ready .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
-.reveal.visible {
+.js-reveal-ready .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.reveal-fade {
+.js-reveal-ready .reveal-fade {
   opacity: 0;
   transition: opacity 0.55s ease;
 }
-.reveal-fade.visible { opacity: 1; }
+.js-reveal-ready .reveal-fade.visible { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-fade {
