@@ -87,7 +87,7 @@ export default function ReportsPage() {
           <div className="report-types-grid">
             {REPORT_TYPES.map((t, i) => (
               <div key={t.name} className="reveal" style={{ transitionDelay: `${i * 80}ms`, background: 'var(--mist)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '28px 24px' }}>
-                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'var(--cobalt-soft)', color: 'var(--cobalt)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, fontSize: 14, fontWeight: 700 }}>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'var(--cobalt-soft)', color: 'var(--cobalt-deep)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, fontSize: 14, fontWeight: 700 }}>
                   {String(i + 1).padStart(2,'0')}
                 </div>
                 <h3 style={{ fontSize: 17, fontWeight: 700, color: 'var(--ink)', marginBottom: 10 }}>{t.name}</h3>

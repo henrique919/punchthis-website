@@ -58,7 +58,7 @@ export default function FAQSection({ items, title = 'Frequently asked questions'
           background: none; border: none; cursor: pointer;
           transition: color 0.15s;
         }
-        .faq-question:hover { color: var(--cobalt); }
+        .faq-question:hover { color: var(--cobalt-deep); }
         .faq-answer {
           overflow: hidden; max-height: 0;
           transition: max-height 0.3s ease;

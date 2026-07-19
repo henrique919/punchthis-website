@@ -6,11 +6,14 @@ import FinalCTA from '../components/FinalCTA'
 import AudienceSection from '../components/AudienceSection'
 import Seo from '../components/Seo'
 
+// `color` doubles as the status-pill text color, so it must clear 4.5:1 on
+// `bg` (not just look "of the right hue") - these are the same darkened
+// values used for the equivalent .chip-* classes in global.css.
 const LIFECYCLE = [
-  { status: 'Open',        color: '#C93B3B', bg: '#FBEBEB', desc: 'Issue raised on site. Photo captured, markup applied, location set.' },
-  { status: 'Assigned',    color: '#E5A016', bg: '#FDF3E0', desc: 'Responsible trade or person set. Every issue carries who is responsible for it.' },
-  { status: 'In Progress', color: '#4C82FF', bg: '#EAF1FF', desc: 'Work is underway. The issue remains visible on the hit list until closed.' },
-  { status: 'Completed',   color: '#1E9E5A', bg: '#E7F3EC', desc: 'Confirmed done on site and marked complete. Captured in the final report.' },
+  { status: 'Open',        color: '#A82C2C', bg: '#FBEBEB', desc: 'Issue raised on site. Photo captured, markup applied, location set.' },
+  { status: 'Assigned',    color: '#92600A', bg: '#FDF3E0', desc: 'Responsible trade or person set. Every issue carries who is responsible for it.' },
+  { status: 'In Progress', color: '#2857D6', bg: '#EAF1FF', desc: 'Work is underway. The issue remains visible on the hit list until closed.' },
+  { status: 'Completed',   color: '#177A46', bg: '#E7F3EC', desc: 'Confirmed done on site and marked complete. Captured in the final report.' },
 ]
 
 export default function HowItWorks() {

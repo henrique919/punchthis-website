@@ -104,7 +104,7 @@ export default function WorkflowSection() {
         .step-number-row { display: flex; align-items: center; gap: 12px; }
         .step-number {
           font-family: var(--font-display); font-size: 13px; font-weight: 700;
-          color: var(--cobalt); letter-spacing: 0.04em;
+          color: var(--cobalt-deep); letter-spacing: 0.04em;
         }
         .step-badge {
           font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
