@@ -47,13 +47,13 @@ export default function PhoneMockup({ children, image, maxWidth = 240, label = '
           background: '#0A0A0A',
           overflow: 'hidden',
         }}>
-          {/* Notch / dynamic island */}
-          <div style={{
-            position:'absolute', top:'1.5%', left:'50%',
-            transform:'translateX(-50%)',
-            width:'28%', height:'3.2%',
-            background:'#111', borderRadius:'999px', zIndex: 10,
-          }} aria-hidden="true" />
+          {/* No decorative notch/dynamic island here on purpose: the real
+              screenshots are captured on web, which has no physical notch
+              and so no safe-area gap pushing header content clear of one —
+              a fake notch drawn on top at a fixed position ended up sitting
+              directly over real header text (e.g. "Markup Studio") on
+              several screens. A device frame that lies about what's under
+              it is worse than one with no notch at all. */}
 
           {/* Screen content area — real screenshot (preferred) or children render at 390×844 virtual coords */}
           <div style={{

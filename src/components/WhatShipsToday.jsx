@@ -1,4 +1,4 @@
-import { Check, Clock, XCircle } from 'lucide-react'
+import { Check, Clock, Sparkles } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 
 // Sourced from PRODUCT_TRUTH.md — keep these two files in sync.
@@ -16,9 +16,9 @@ const BETA = [
   'Native iOS and Android apps (in development)',
 ]
 
-const NOT_YET = [
-  'Cloud backup or sync',
-  'Team or multi-user collaboration',
+const COMING_NEXT = [
+  'Cloud backup and sync',
+  'Team and multi-user collaboration',
   'A contractor-facing app or portal',
   'Published pricing',
 ]
@@ -42,15 +42,15 @@ export default function WhatShipsToday() {
     <section ref={ref} className="wst-section section" aria-labelledby="wst-heading">
       <div className="container">
         <div className="reveal wst-header">
-          <p className="section-label">WHAT SHIPS TODAY</p>
-          <h2 id="wst-heading" className="wst-headline">Only what's actually built. Nothing implied.</h2>
+          <p className="section-label">WHAT YOU GET TODAY</p>
+          <h2 id="wst-heading" className="wst-headline">Built, not promised.</h2>
           <p className="wst-sub">
-            PunchThis is pre-launch. Here's exactly what's real right now, what's in beta, and what isn't built yet — no roadmap dressed up as a feature.
+            PunchThis is in early access. Here's exactly what's live right now, what's rolling out in beta, and what's coming next.
           </p>
         </div>
         <div className="wst-grid">
           <div className="reveal wst-card">
-            <h3 className="wst-card-title wst-title-shipped"><Check size={18} strokeWidth={2.5} aria-hidden="true" /> Shipped</h3>
+            <h3 className="wst-card-title wst-title-shipped"><Check size={18} strokeWidth={2.5} aria-hidden="true" /> Live now</h3>
             <List items={SHIPPED} icon={Check} tone="shipped" />
           </div>
           <div className="reveal wst-card" style={{ transitionDelay: '80ms' }}>
@@ -58,8 +58,8 @@ export default function WhatShipsToday() {
             <List items={BETA} icon={Clock} tone="beta" />
           </div>
           <div className="reveal wst-card" style={{ transitionDelay: '160ms' }}>
-            <h3 className="wst-card-title wst-title-not-yet"><XCircle size={18} strokeWidth={2.5} aria-hidden="true" /> Not yet</h3>
-            <List items={NOT_YET} icon={XCircle} tone="not-yet" />
+            <h3 className="wst-card-title wst-title-not-yet"><Sparkles size={18} strokeWidth={2.5} aria-hidden="true" /> Coming next</h3>
+            <List items={COMING_NEXT} icon={Sparkles} tone="not-yet" />
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function WhatShipsToday() {
         .wst-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; }
         .wst-shipped .wst-item svg { color: #1E9E5A; flex-shrink: 0; margin-top: 1px; }
         .wst-beta .wst-item svg { color: #E5A016; flex-shrink: 0; margin-top: 1px; }
-        .wst-not-yet .wst-item svg { color: var(--border); flex-shrink: 0; margin-top: 1px; }
+        .wst-not-yet .wst-item svg { color: var(--steel-text); flex-shrink: 0; margin-top: 1px; }
         .wst-not-yet .wst-item { color: var(--steel-text); }
         @media (max-width: 900px) { .wst-grid { grid-template-columns: 1fr; } }
       `}</style>

@@ -10,9 +10,9 @@
 
 export const SOURCE_APP = {
   repo: 'henrique919/audit-snap-663',
-  commit: '6c3e20233bdceb011be34dfecf13f26c150f4adc',
-  branch: 'main',
-  buildCommand: 'cd expo && bun run build:web',
+  commit: 'ec6b0a137254dee7f5e0195704c5187adc097fa0', // re-captured after the notch-overlay fix and the issue #008 markup cleanup — see PUNCHTHIS_MARKETING_LOOP.md
+  branch: 'claude/punchthis-design-review-vxgpzk',
+  buildCommand: 'cd expo && npm run build:web',
 }
 
 export const CAPTURE_METHOD = 'Playwright + Chromium, 390x844 viewport, served from the release web export'
@@ -37,7 +37,7 @@ export const APP_SCREENS = {
   markupStudio: {
     file: 'markup-studio.png',
     route: '/markup/[assetId]',
-    label: 'Markup Studio with real box, circle and arrow annotations on a sample issue photo',
+    label: 'Markup Studio with real box, arrow and text annotations on a sample issue photo',
   },
   hitlist: {
     file: 'hitlist.png',
@@ -62,6 +62,6 @@ export const APP_SCREENS = {
   issueAnnotated: {
     file: 'issue-annotated.png',
     route: '/markup/[assetId]',
-    label: 'The same issue #008 photo after real arrow/box/circle/text annotation, cropped from the markup-studio.png capture to isolate the photo card',
+    label: 'The same issue #008 photo after real box/arrow/text annotation, captured directly from the photo canvas element (testID="markup-photo-canvas") rather than cropped by pixel offset from the full-screen capture',
   },
 }

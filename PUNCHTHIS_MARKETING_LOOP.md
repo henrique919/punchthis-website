@@ -29,3 +29,15 @@ Execution ledger for `PUNCHTHIS_DESIGN_UX_AUDIT.md` (19 July 2026). Not a prose 
 
 - A row only moves to `Complete` after the change is actually committed. The commit column holds the real hash from `git log` at that moment — never a placeholder or a guess.
 - "Blocked — external input" rows are implemented end-to-end except for the one credential/decision only the operator can supply; that value is documented at the point of blockage, and the loop continues to the next item without waiting.
+
+## Round 2 — stakeholder design feedback (post-completion)
+
+The 18-item queue above closed out the original written audit. This section tracks a live follow-up round of direct feedback from the product owner, reviewing the actual rendered site rather than the audit document.
+
+| ID | Finding | Scope | Status | Commit |
+|---|---|---|---|---|
+| R2-1 | Hero phone mockups showed a black bar over real header text ("Markup Studio", "Pre-Handover Site Walk") | `PhoneMockup.jsx` — root cause was a decorative notch overlay colliding with real header text (web captures have no safe-area gap a real notch would clear) | Complete | `8f1c4ce` |
+| R2-2 | Markup demo photo showed 7 stacked annotation marks at once ("markups over markups") | `audit-snap-663` issue #008 seed annotations trimmed 8→3; `IssueJourney.jsx` copy updated to match; screenshots re-captured | Complete | `audit-snap-663@ec6b0a1`, `8f1c4ce` |
+| R2-3 | "Only what's actually built. Nothing implied." section read as a defensive disclaimer, not a selling point | `WhatShipsToday.jsx` — reframed headline/labels/icon to "Built, not promised." / Live now / Beta / Coming next; underlying claims unchanged | Complete | `1314c8a` |
+| R2-4 | Seed "photos" behind the phone mockups are synthetic gradient placeholders (`scripts/generate-seed-photos.mjs`), not real photos — described as "putrid" | Replace with real, license-clear photos in `audit-snap-663`; re-capture affected screenshots | **Blocked — external input**: user sent 5 real construction photos inline in chat; not accessible as files on disk in this environment. Needs a delivery method (source URLs, or committed to a repo) before this can proceed | — |
+| R2-5 | Site framing should stay usable/inclusive beyond construction specifically (siteauditpro.com referenced as inspiration, not a direction) | No immediate scope — noted for future consideration per the operator's own framing | Noted, no action taken | — |

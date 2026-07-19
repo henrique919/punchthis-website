@@ -7,7 +7,7 @@ import issueAnnotatedImg from '../assets/app-screens/issue-annotated.png'
 
 const STEPS = [
   { n: '01', label: 'Photo', body: 'Captured on site and attached to a new issue — no separate app, no re-typing.' },
-  { n: '02', label: 'Markup', body: 'Boxed the fault, circled the fixture, drew an arrow and left a note — real annotation tools, drag the slider to see it.' },
+  { n: '02', label: 'Markup', body: 'Boxed the fault, drew an arrow to it and left a note — real annotation tools, drag the slider to see it.' },
   { n: '03', label: 'Report', body: 'The annotated photo, its status and its assignee carry straight through into the PDF report.' },
 ]
 
