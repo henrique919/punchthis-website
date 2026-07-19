@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import PhoneMockup from './PhoneMockup'
+import CaptureAnimation from './CaptureAnimation'
 import { HERO } from '../config/content'
 import captureSessionImg from '../assets/app-screens/capture-session.png'
-import markupStudioImg from '../assets/app-screens/markup-studio.png'
 import reportPreviewImg from '../assets/app-screens/report-preview.png'
 
 export default function Hero() {
@@ -77,14 +77,14 @@ export default function Hero() {
         </div>
 
         {/* Phones column — real release-build screenshots (sample seed data), not mockups */}
-        <div className="hero-phones" aria-label="Real PunchThis screenshots — capture session, markup studio and PDF report preview, shown with the app's sample data">
+        <div className="hero-phones" aria-label="Real PunchThis screenshots: capture session and PDF report preview, plus an animated preview of capturing and marking up a site issue, all shown with the app's sample data">
           {/* Left phone (back) — Capture */}
           <div className="phone-left hero-reveal">
             <PhoneMockup maxWidth={195} label="Real PunchThis capture session screen" image={captureSessionImg} priority />
           </div>
-          {/* Centre phone (front) — Markup */}
+          {/* Centre phone (front) — animated capture → markup → save */}
           <div className="phone-centre hero-reveal">
-            <PhoneMockup maxWidth={240} label="Real PunchThis markup studio screen with annotations" image={markupStudioImg} priority />
+            <CaptureAnimation maxWidth={240} />
           </div>
           {/* Right phone (back) — PDF */}
           <div className="phone-right hero-reveal">

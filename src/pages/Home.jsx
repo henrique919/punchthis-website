@@ -3,7 +3,6 @@ import Hero from '../components/Hero'
 import TrustStrip from '../components/TrustStrip'
 import IssueJourney from '../components/IssueJourney'
 import ReportShowcase from '../components/ReportShowcase'
-import WhatShipsToday from '../components/WhatShipsToday'
 import MarkupShowcase from '../components/MarkupShowcase'
 import WorkflowSection from '../components/WorkflowSection'
 import Benefits from '../components/Benefits'
@@ -27,7 +26,6 @@ export default function Home() {
       <TrustStrip />
       <IssueJourney />
       <ReportShowcase />
-      <WhatShipsToday />
       <MarkupShowcase />
       <WorkflowSection />
       <Benefits />

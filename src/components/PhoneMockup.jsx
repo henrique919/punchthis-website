@@ -33,11 +33,17 @@ export default function PhoneMockup({ children, image, maxWidth = 240, label = '
         background: 'linear-gradient(160deg, #2A2A2A 0%, #111 50%, #1E1E1E 100%)',
         boxShadow: '0 2px 0 #555 inset, 0 -2px 0 #000 inset, 0 24px 64px rgba(0,0,0,0.45), 0 8px 20px rgba(0,0,0,0.3)',
       }}>
-        {/* Side buttons */}
-        <div style={{ position:'absolute', left:'-2.5%', top:'22%', width:'2.5%', height:'8%', background:'#333', borderRadius:'2px 0 0 2px', boxShadow:'-1px 0 2px rgba(0,0,0,0.4)' }} aria-hidden="true" />
-        <div style={{ position:'absolute', left:'-2.5%', top:'33%', width:'2.5%', height:'12%', background:'#2E2E2E', borderRadius:'2px 0 0 2px', boxShadow:'-1px 0 2px rgba(0,0,0,0.4)' }} aria-hidden="true" />
-        <div style={{ position:'absolute', left:'-2.5%', top:'47%', width:'2.5%', height:'12%', background:'#2E2E2E', borderRadius:'2px 0 0 2px', boxShadow:'-1px 0 2px rgba(0,0,0,0.4)' }} aria-hidden="true" />
-        <div style={{ position:'absolute', right:'-2.5%', top:'30%', width:'2.5%', height:'16%', background:'#2A2A2A', borderRadius:'0 2px 2px 0', boxShadow:'1px 0 2px rgba(0,0,0,0.4)' }} aria-hidden="true" />
+        {/* Side buttons — thin and low-relief on purpose. Real hardware
+            buttons protrude a millimetre or two; the original values here
+            (2.5% of frame width, ~8-16% tall, heavy drop shadow) rendered
+            as thick dark blocks with none of the phones on the market
+            today. Modeled after the current iPhone's layout instead: a
+            small action button, a close volume pair below it, one power
+            button on the right. */}
+        <div style={{ position:'absolute', left:'-0.9%', top:'15%', width:'0.9%', height:'4%', background:'#3A3A3A', borderRadius:'1px 0 0 1px', boxShadow:'-0.5px 0 1px rgba(0,0,0,0.3)' }} aria-hidden="true" />
+        <div style={{ position:'absolute', left:'-0.9%', top:'23%', width:'0.9%', height:'5.5%', background:'#333', borderRadius:'1px 0 0 1px', boxShadow:'-0.5px 0 1px rgba(0,0,0,0.3)' }} aria-hidden="true" />
+        <div style={{ position:'absolute', left:'-0.9%', top:'30%', width:'0.9%', height:'5.5%', background:'#333', borderRadius:'1px 0 0 1px', boxShadow:'-0.5px 0 1px rgba(0,0,0,0.3)' }} aria-hidden="true" />
+        <div style={{ position:'absolute', right:'-0.9%', top:'19%', width:'0.9%', height:'7%', background:'#333', borderRadius:'0 1px 1px 0', boxShadow:'0.5px 0 1px rgba(0,0,0,0.3)' }} aria-hidden="true" />
 
         {/* Bezel inset */}
         <div style={{
