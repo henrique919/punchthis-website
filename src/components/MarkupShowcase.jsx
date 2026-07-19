@@ -92,12 +92,13 @@ export default function MarkupShowcase() {
         }
         .tool-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
         .tool-tab {
+          min-height: 44px;
           padding: 8px 18px; border-radius: 8px; font-size: 14px; font-weight: 600;
           color: var(--muted); background: var(--white); border: 1.5px solid var(--border);
           transition: all 0.15s;
         }
-        .tool-tab:hover { border-color: var(--cobalt); color: var(--cobalt); }
-        .tool-tab.active { background: var(--cobalt); color: #fff; border-color: var(--cobalt); }
+        .tool-tab:hover { border-color: var(--cobalt); color: var(--cobalt-deep); }
+        .tool-tab.active { background: var(--cobalt-deep); color: #fff; border-color: var(--cobalt-deep); }
         .tool-desc { font-size: 13px; color: var(--steel-text); min-height: 20px; }
 
         .markup-benefits { display: flex; flex-direction: column; gap: 16px; }

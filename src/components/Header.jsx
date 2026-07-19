@@ -44,7 +44,7 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <Link to={NAV.ctaUrl} className="btn btn-primary" style={{ padding: '10px 20px', fontSize: 14 }}>
+          <Link to={NAV.ctaUrl} className="btn btn-primary" style={{ padding: '13px 20px', fontSize: 14, minHeight: 44 }}>
             {NAV.ctaLabel}
           </Link>
           <button
@@ -131,7 +131,7 @@ export default function Header() {
 
         .hamburger {
           display: none; align-items: center; justify-content: center;
-          width: 40px; height: 40px; border-radius: 8px;
+          width: 44px; height: 44px; border-radius: 8px;
           color: var(--ink); transition: background 0.15s;
         }
         .hamburger:hover { background: var(--mist); }

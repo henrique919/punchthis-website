@@ -25,8 +25,9 @@ export default function App() {
   return (
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ScrollToTop />
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />
