@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 import FinalCTA from '../components/FinalCTA'
+import Seo from '../components/Seo'
 import { FAQ_ITEMS } from '../config/content'
 
 function FAQCategory({ category, items }) {
@@ -43,6 +44,11 @@ export default function FAQPage() {
   const ref = useReveal()
   return (
     <>
+      <Seo
+        title="FAQ"
+        description="Answers about what PunchThis does, who it's for, platform availability and pricing."
+        path="/faq"
+      />
       {/* Hero */}
       <section className="faq-page-hero dark-hero" aria-labelledby="faq-page-heading">
         <div className="page-hero-grid" aria-hidden="true" />
@@ -85,7 +91,7 @@ export default function FAQPage() {
 
       <style>{`
         .faq-page-grid { display: flex; flex-direction: column; gap: 56px; margin-bottom: 72px; }
-        .faq-cat-heading { font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cobalt); margin-bottom: 20px; }
+        .faq-cat-heading { font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cobalt-deep); margin-bottom: 20px; }
         .faq-items { display: flex; flex-direction: column; }
         .faq-item { border-bottom: 1px solid var(--border); }
         .faq-items .faq-item:first-child { border-top: 1px solid var(--border); }
@@ -94,7 +100,7 @@ export default function FAQPage() {
           padding: 20px 4px; text-align: left; font-size: 16px; font-weight: 600; color: var(--ink);
           background: none; border: none; cursor: pointer; transition: color 0.15s;
         }
-        .faq-q:hover { color: var(--cobalt); }
+        .faq-q:hover { color: var(--cobalt-deep); }
         .faq-a { overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
         .faq-a.open { max-height: 300px; }
         .faq-a p { padding: 0 4px 20px; font-size: 15px; color: var(--muted); line-height: 1.7; }

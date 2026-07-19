@@ -62,10 +62,10 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="footer-bottom">
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ color: '#4E5D6A', fontSize: 13 }}>
+          <p style={{ color: 'var(--muted-on-dark)', fontSize: 13 }}>
             © {SITE.year} {SITE.name}. All rights reserved.
           </p>
-          <p style={{ color: '#4E5D6A', fontSize: 13 }}>
+          <p style={{ color: 'var(--muted-on-dark)', fontSize: 13 }}>
             Built for the field.
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function Footer() {
           font-family: var(--font-body);
           font-size: 11px; font-weight: 800;
           letter-spacing: 0.12em; text-transform: uppercase;
-          color: #4E5D6A; margin-bottom: 16px;
+          color: var(--muted-on-dark); margin-bottom: 16px;
         }
         .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
         .footer-link { font-size: 14px; color: #9DA9B4; transition: color 0.15s; }

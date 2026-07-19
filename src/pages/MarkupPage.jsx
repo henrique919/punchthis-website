@@ -5,6 +5,7 @@ import { useReveal } from '../hooks/useReveal'
 import PhoneMockup from '../components/PhoneMockup'
 import MarkupScreen from '../screens/MarkupScreen'
 import FinalCTA from '../components/FinalCTA'
+import Seo from '../components/Seo'
 
 const TOOLS = [
   { id: 'arrow',  label: 'Arrow',  icon: '↗',
@@ -81,7 +82,7 @@ function ToolDemo() {
         .tool-phone { display: flex; justify-content: center; position: sticky; top: 100px; }
         .tool-content { display: flex; flex-direction: column; gap: 28px; }
         .tool-demo-heading { font-size: clamp(26px, 3vw, 40px); color: var(--ink); }
-        .tool-demo-sub { font-size: 16px; color: var(--steel); }
+        .tool-demo-sub { font-size: 16px; color: var(--steel-text); }
         .tool-selector { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
         .tool-card {
           display: flex; align-items: center; gap: 12px;
@@ -111,6 +112,11 @@ export default function MarkupPage() {
   const ref = useReveal()
   return (
     <>
+      <Seo
+        title="Markup"
+        description="Arrows, circles, boxes, numbered markers and freehand pen — mark up defect photos directly on site with PunchThis."
+        path="/markup"
+      />
       {/* Hero */}
       <section className="markup-page-hero dark-hero" aria-labelledby="markup-page-heading">
         <div className="page-hero-grid" aria-hidden="true" />

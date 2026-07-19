@@ -44,8 +44,7 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <Link to={NAV.signInUrl} className="sign-in-link">Sign in</Link>
-          <Link to={NAV.ctaUrl} className="btn btn-primary" style={{ padding: '10px 20px', fontSize: 14 }}>
+          <Link to={NAV.ctaUrl} className="btn btn-primary" style={{ padding: '13px 20px', fontSize: 14, minHeight: 44 }}>
             {NAV.ctaLabel}
           </Link>
           <button
@@ -107,13 +106,13 @@ export default function Header() {
         .site-header.dark-mode .nav-link { color: #CBD2D8; }
         .site-header.dark-mode .nav-link:hover,
         .site-header.dark-mode .nav-link.active { color: #fff; }
-        .site-header.dark-mode .sign-in-link { color: #8B97A1; }
         .site-header.dark-mode .hamburger { color: #fff; }
 
         .header-inner {
           display: flex; align-items: center; gap: 16px;
           height: 68px;
         }
+        .header-inner > a:first-child { min-width: 0; flex-shrink: 1; }
         .desktop-nav {
           display: flex; align-items: center; gap: 4px;
           margin-left: 24px; flex: 1;
@@ -129,12 +128,10 @@ export default function Header() {
         .nav-link.active { color: var(--ink); background: var(--mist); }
 
         .header-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
-        .sign-in-link { font-size: 14px; font-weight: 600; color: var(--muted); transition: color 0.15s; }
-        .sign-in-link:hover { color: var(--ink); }
 
         .hamburger {
           display: none; align-items: center; justify-content: center;
-          width: 40px; height: 40px; border-radius: 8px;
+          width: 44px; height: 44px; border-radius: 8px;
           color: var(--ink); transition: background 0.15s;
         }
         .hamburger:hover { background: var(--mist); }
@@ -156,9 +153,13 @@ export default function Header() {
 
         @media (max-width: 768px) {
           .desktop-nav { display: none; }
-          .sign-in-link { display: none; }
           .hamburger { display: flex; }
           .site-header.dark-mode { background: rgba(18,24,31,0.96); }
+        }
+        /* Logo + CTA button + hamburger no longer fit on one row below
+           this width - the drawer's own full-width CTA covers it. */
+        @media (max-width: 400px) {
+          .header-actions > .btn-primary { display: none; }
         }
       `}</style>
     </header>

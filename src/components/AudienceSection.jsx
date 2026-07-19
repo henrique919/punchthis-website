@@ -30,7 +30,7 @@ export default function AudienceSection() {
         .audience-section { background: var(--white); }
         .aud-header { text-align: center; margin-bottom: 56px; }
         .aud-headline { font-size: clamp(26px, 3vw, 42px); color: var(--ink); margin-bottom: 14px; }
-        .aud-sub { font-size: 17px; color: var(--steel); max-width: 540px; margin: 0 auto; line-height: 1.6; }
+        .aud-sub { font-size: 17px; color: var(--steel-text); max-width: 540px; margin: 0 auto; line-height: 1.6; }
         .aud-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         .aud-card {
           background: var(--mist);

@@ -4,19 +4,26 @@ import { useReveal } from '../hooks/useReveal'
 import WorkflowSection from '../components/WorkflowSection'
 import FinalCTA from '../components/FinalCTA'
 import AudienceSection from '../components/AudienceSection'
+import Seo from '../components/Seo'
 
+// Same tokens as the equivalent .chip-* classes in global.css - see
+// brand-tokens.mjs for the full status-colour source of truth.
 const LIFECYCLE = [
-  { status: 'Open',        color: '#C93B3B', bg: '#FBEBEB', desc: 'Issue raised on site. Photo captured, markup applied, location set.' },
-  { status: 'Assigned',    color: '#E5A016', bg: '#FDF3E0', desc: 'Responsible trade or person assigned. They can see exactly what is needed.' },
-  { status: 'In Progress', color: '#4C82FF', bg: '#EAF1FF', desc: 'Work is underway. The issue remains visible on the hit list until closed.' },
-  { status: 'For Review',  color: '#7B61E0', bg: '#EEEAFB', desc: 'Contractor has marked the work done. Awaiting inspection and sign-off.' },
-  { status: 'Verified',    color: '#1E9E5A', bg: '#E7F3EC', desc: 'Work confirmed on site. Issue closed. Captured in the final report.' },
+  { status: 'Open',        color: 'var(--open-text)',    bg: 'var(--open-soft)',    desc: 'Issue raised on site. Photo captured, markup applied, location set.' },
+  { status: 'Assigned',    color: 'var(--warning-text)', bg: 'var(--warning-soft)', desc: 'Responsible trade or person set. Every issue carries who is responsible for it.' },
+  { status: 'In Progress', color: 'var(--cobalt-deep)',  bg: 'var(--cobalt-soft)',  desc: 'Work is underway. The issue remains visible on the hit list until closed.' },
+  { status: 'Completed',   color: 'var(--success-text)', bg: 'var(--success-soft)', desc: 'Confirmed done on site and marked complete. Captured in the final report.' },
 ]
 
 export default function HowItWorks() {
   const ref = useReveal()
   return (
     <>
+      <Seo
+        title="How it works"
+        description="From first photo to final report — see the four-step PunchThis workflow and the issue lifecycle behind it."
+        path="/how-it-works"
+      />
       {/* Page hero */}
       <section className="hiw-hero dark-hero" aria-labelledby="hiw-heading">
         <div className="page-hero-grid" aria-hidden="true" />
@@ -27,7 +34,7 @@ export default function HowItWorks() {
               From the first photo to the final report.
             </h1>
             <p className="reveal" style={{ fontSize: 18, color: '#9DA9B4', lineHeight: 1.7, maxWidth: 520 }}>
-              PunchThis is built around four steps that connect every part of the site inspection process—from capture to verified close-out.
+              PunchThis is built around four steps that connect every part of the site inspection process—from capture to completed close-out.
             </p>
             <div className="reveal" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', justifyContent: 'center' }}>
               <Link to="/early-access" className="btn btn-primary">Get early access <ArrowRight size={16}/></Link>

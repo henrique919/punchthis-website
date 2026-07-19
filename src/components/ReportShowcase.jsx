@@ -2,14 +2,14 @@ import { Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import PhoneMockup from './PhoneMockup'
-import ReportBuilderScreen from '../screens/ReportBuilderScreen'
-import PDFPreviewScreen from '../screens/PDFPreviewScreen'
 import { REPORTS_SECTION } from '../config/content'
+import reportBuilderImg from '../assets/app-screens/report-builder.png'
+import reportPreviewImg from '../assets/app-screens/report-preview.png'
 
 export default function ReportShowcase() {
   const ref = useReveal()
   return (
-    <section ref={ref} id="reports" className="reports-section section" aria-labelledby="reports-heading">
+    <section ref={ref} id="sample-report" className="reports-section section" aria-labelledby="reports-heading">
       <div className="container reports-inner">
         {/* Copy column */}
         <div className="reports-copy">
@@ -31,23 +31,19 @@ export default function ReportShowcase() {
           </div>
         </div>
 
-        {/* Phones */}
-        <div className="reveal reports-phones" aria-label="Report builder and PDF preview screenshots">
+        {/* Phones — real release-build screenshots (sample seed data) */}
+        <div className="reveal reports-phones" aria-label="Real PunchThis report builder and PDF preview screenshots">
           <div className="report-phone-a">
-            <PhoneMockup maxWidth={200} label="PunchThis report builder screen">
-              <ReportBuilderScreen />
-            </PhoneMockup>
+            <PhoneMockup maxWidth={200} label="Real PunchThis report builder screen" image={reportBuilderImg} />
           </div>
           <div className="report-phone-b">
-            <PhoneMockup maxWidth={200} label="PunchThis PDF preview screen">
-              <PDFPreviewScreen />
-            </PhoneMockup>
+            <PhoneMockup maxWidth={200} label="Real PunchThis PDF report preview screen" image={reportPreviewImg} />
           </div>
         </div>
       </div>
 
       <style>{`
-        .reports-section { background: var(--slate); }
+        .reports-section { background: var(--slate); scroll-margin-top: 84px; }
         .reports-inner {
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;

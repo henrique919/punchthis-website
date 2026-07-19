@@ -31,7 +31,7 @@ export default function Benefits() {
         .benefits-section { background: var(--mist); }
         .benefits-header { text-align: center; margin-bottom: 56px; }
         .benefits-header h2 { font-size: clamp(26px, 3vw, 40px); color: var(--ink); margin: 12px 0; }
-        .benefits-sub { font-size: 17px; color: var(--steel); max-width: 500px; margin: 0 auto; }
+        .benefits-sub { font-size: 17px; color: var(--steel-text); max-width: 500px; margin: 0 auto; }
         .benefits-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);

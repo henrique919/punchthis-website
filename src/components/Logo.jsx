@@ -7,7 +7,11 @@ export default function Logo({ iconOnly = false, light = false, size = 'md' }) {
   const { icon, text } = sizes[size] || sizes.md
   const frameStroke = light ? '#8B97A1' : '#7E8B96'
   const wordPunch = light ? '#FFFFFF' : '#1C232B'
-  const wordThis  = light ? '#8B97A1' : '#A2ACB5'
+  // Both previously failed AA as text (2.31:1 on white, 3.4:1 on the
+  // sticky header's dark-mode blend) - #616B78 matches --steel-text
+  // (5.41:1 on white), #AEB7BF is its dark-surface counterpart (4.99:1 on
+  // the header's dark-mode background, 7.79:1 on solid ink).
+  const wordThis  = light ? '#AEB7BF' : '#616B78'
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: icon * 0.33, flexShrink: 0 }}

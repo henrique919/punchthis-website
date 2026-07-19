@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import PhoneMockup from './PhoneMockup'
-import MarkupScreen from '../screens/MarkupScreen'
-import CaptureScreen from '../screens/CaptureScreen'
-import PDFPreviewScreen from '../screens/PDFPreviewScreen'
 import { HERO } from '../config/content'
+import captureSessionImg from '../assets/app-screens/capture-session.png'
+import markupStudioImg from '../assets/app-screens/markup-studio.png'
+import reportPreviewImg from '../assets/app-screens/report-preview.png'
 
 export default function Hero() {
   const heroRef = useRef(null)
@@ -27,6 +27,18 @@ export default function Hero() {
   }, [])
 
   const lines = HERO.headline.split('\n')
+
+  // react-router's <Link> does client-side navigation and won't trigger the
+  // browser's native scroll-to-hash — handle same-page anchors ourselves.
+  function handleSecondaryCta(e) {
+    const hashIndex = HERO.secondaryCta.href.indexOf('#')
+    if (hashIndex === -1) return
+    const target = document.getElementById(HERO.secondaryCta.href.slice(hashIndex + 1))
+    if (target) {
+      e.preventDefault()
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   return (
     <section
@@ -56,7 +68,7 @@ export default function Hero() {
               {HERO.primaryCta.label}
               <ArrowRight size={17} />
             </Link>
-            <Link to={HERO.secondaryCta.href} className="btn btn-ghost">
+            <Link to={HERO.secondaryCta.href} onClick={handleSecondaryCta} className="btn btn-ghost">
               {HERO.secondaryCta.label}
             </Link>
           </div>
@@ -64,25 +76,19 @@ export default function Hero() {
           <p className="hero-reveal hero-reassurance">{HERO.reassurance}</p>
         </div>
 
-        {/* Phones column */}
-        <div className="hero-phones" aria-label="PunchThis app screenshots — markup, capture and report screens">
+        {/* Phones column — real release-build screenshots (sample seed data), not mockups */}
+        <div className="hero-phones" aria-label="Real PunchThis screenshots — capture session, markup studio and PDF report preview, shown with the app's sample data">
           {/* Left phone (back) — Capture */}
           <div className="phone-left hero-reveal">
-            <PhoneMockup maxWidth={195} label="PunchThis capture session screen">
-              <CaptureScreen />
-            </PhoneMockup>
+            <PhoneMockup maxWidth={195} label="Real PunchThis capture session screen" image={captureSessionImg} priority />
           </div>
           {/* Centre phone (front) — Markup */}
           <div className="phone-centre hero-reveal">
-            <PhoneMockup maxWidth={240} label="PunchThis markup studio screen">
-              <MarkupScreen activeTool="arrow" />
-            </PhoneMockup>
+            <PhoneMockup maxWidth={240} label="Real PunchThis markup studio screen with annotations" image={markupStudioImg} priority />
           </div>
           {/* Right phone (back) — PDF */}
           <div className="phone-right hero-reveal">
-            <PhoneMockup maxWidth={195} label="PunchThis PDF preview screen">
-              <PDFPreviewScreen />
-            </PhoneMockup>
+            <PhoneMockup maxWidth={195} label="Real PunchThis PDF report preview screen" image={reportPreviewImg} priority />
           </div>
         </div>
       </div>

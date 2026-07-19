@@ -2,15 +2,16 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Check } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 import PhoneMockup from '../components/PhoneMockup'
-import ReportBuilderScreen from '../screens/ReportBuilderScreen'
-import PDFPreviewScreen from '../screens/PDFPreviewScreen'
 import FinalCTA from '../components/FinalCTA'
+import Seo from '../components/Seo'
+import reportBuilderImg from '../assets/app-screens/report-builder.png'
+import reportPreviewImg from '../assets/app-screens/report-preview.png'
 
 const REPORT_SECTIONS = [
   { label: 'Cover page',          desc: 'Project name, date, inspector and client details.' },
-  { label: 'Executive summary',   desc: 'Issue counts broken down by status — open, overdue, verified.' },
+  { label: 'Executive summary',   desc: 'Issue counts broken down by status — open, assigned, in progress and completed.' },
   { label: 'Annotated photos',    desc: 'Full-resolution images with all markup intact.' },
-  { label: 'Include completed',   desc: 'Optionally include verified and closed issues for a full record.' },
+  { label: 'Include completed',   desc: 'Optionally include completed issues for a full record.' },
   { label: 'Signature section',   desc: 'Approval block for sign-off on handovers and practical completion.' },
   { label: 'Group by Location',   desc: 'Organise issues by zone, level or area for easier navigation.' },
 ]
@@ -28,6 +29,11 @@ export default function ReportsPage() {
 
   return (
     <>
+      <Seo
+        title="Reports"
+        description="Turn site evidence into a client-ready PDF report. Choose contents, include annotated photos, and preview before you share."
+        path="/reports"
+      />
       {/* Hero */}
       <section className="reports-page-hero dark-hero" aria-labelledby="reports-page-heading">
         <div className="page-hero-grid" aria-hidden="true" />
@@ -47,9 +53,9 @@ export default function ReportsPage() {
           </div>
           <div className="reveal report-hero-phones" ref={ref1}>
             <div style={{ transform: 'rotate(-3deg)', filter: 'brightness(0.88)', marginRight: -16 }}>
-              <PhoneMockup maxWidth={195} label="Report builder screen"><ReportBuilderScreen /></PhoneMockup>
+              <PhoneMockup maxWidth={195} label="Real PunchThis report builder screen" image={reportBuilderImg} />
             </div>
-            <PhoneMockup maxWidth={210} label="PDF preview screen"><PDFPreviewScreen /></PhoneMockup>
+            <PhoneMockup maxWidth={210} label="Real PunchThis PDF report preview screen" image={reportPreviewImg} />
           </div>
         </div>
         <style>{`
@@ -78,10 +84,10 @@ export default function ReportsPage() {
               The right report for every situation.
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }}>
+          <div className="report-types-grid">
             {REPORT_TYPES.map((t, i) => (
               <div key={t.name} className="reveal" style={{ transitionDelay: `${i * 80}ms`, background: 'var(--mist)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '28px 24px' }}>
-                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'var(--cobalt-soft)', color: 'var(--cobalt)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, fontSize: 14, fontWeight: 700 }}>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'var(--cobalt-soft)', color: 'var(--cobalt-deep)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, fontSize: 14, fontWeight: 700 }}>
                   {String(i + 1).padStart(2,'0')}
                 </div>
                 <h3 style={{ fontSize: 17, fontWeight: 700, color: 'var(--ink)', marginBottom: 10 }}>{t.name}</h3>
@@ -90,7 +96,10 @@ export default function ReportsPage() {
             ))}
           </div>
         </div>
-        <style>{`@media(max-width:768px){.reports-page-hero .container > div:last-child > div { grid-template-columns:1fr!important; }}`}</style>
+        <style>{`
+          .report-types-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+          @media (max-width: 640px) { .report-types-grid { grid-template-columns: 1fr; } }
+        `}</style>
       </section>
 
       {/* Report contents */}
@@ -102,7 +111,7 @@ export default function ReportsPage() {
               Choose exactly what each report includes.
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
             {REPORT_SECTIONS.map((s, i) => (
               <div key={s.label} className="reveal" style={{ transitionDelay: `${i * 60}ms`, background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '20px 22px', display: 'flex', alignItems: 'flex-start', gap: 14 }}>
                 <Check size={16} strokeWidth={3} color="var(--cobalt)" style={{ marginTop: 2, flexShrink: 0 }} aria-hidden="true" />

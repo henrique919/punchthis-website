@@ -1,10 +1,14 @@
 /**
  * PhoneMockup — reusable phone frame.
- * Pass a screen component as `children`.
+ * Pass either a real screenshot via `image` (preferred — see
+ * src/config/media-manifest.js) or an SVG screen component as `children`.
  * `maxWidth` controls the rendered width (default 240px).
  * `label` — accessible aria-label for the device.
+ * `priority` — set true for above-the-fold instances (the hero) so the
+ * image loads eagerly instead of lazily; lazy-loading an LCP candidate
+ * delays it and directly hurts the LCP budget.
  */
-export default function PhoneMockup({ children, maxWidth = 240, label = 'App screenshot', style = {} }) {
+export default function PhoneMockup({ children, image, maxWidth = 240, label = 'App screenshot', style = {}, priority = false }) {
   // 390 × 844 native ratio
   const ratio = 844 / 390
 
@@ -51,21 +55,33 @@ export default function PhoneMockup({ children, maxWidth = 240, label = 'App scr
             background:'#111', borderRadius:'999px', zIndex: 10,
           }} aria-hidden="true" />
 
-          {/* Screen content area — children render at 390×844 virtual coords */}
+          {/* Screen content area — real screenshot (preferred) or children render at 390×844 virtual coords */}
           <div style={{
             position: 'absolute',
             inset: 0,
             overflow: 'hidden',
             borderRadius: '16% / 7.4%',
           }}>
-            <svg
-              viewBox="0 0 390 844"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ width: '100%', height: '100%', display: 'block' }}
-              aria-hidden="true"
-            >
-              {children}
-            </svg>
+            {image ? (
+              <img
+                src={image}
+                alt=""
+                aria-hidden="true"
+                style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover' }}
+                loading={priority ? 'eager' : 'lazy'}
+                fetchPriority={priority ? 'high' : 'auto'}
+                decoding="async"
+              />
+            ) : (
+              <svg
+                viewBox="0 0 390 844"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ width: '100%', height: '100%', display: 'block' }}
+                aria-hidden="true"
+              >
+                {children}
+              </svg>
+            )}
           </div>
         </div>
       </div>
