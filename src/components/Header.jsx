@@ -112,6 +112,7 @@ export default function Header() {
           display: flex; align-items: center; gap: 16px;
           height: 68px;
         }
+        .header-inner > a:first-child { min-width: 0; flex-shrink: 1; }
         .desktop-nav {
           display: flex; align-items: center; gap: 4px;
           margin-left: 24px; flex: 1;
@@ -154,6 +155,11 @@ export default function Header() {
           .desktop-nav { display: none; }
           .hamburger { display: flex; }
           .site-header.dark-mode { background: rgba(18,24,31,0.96); }
+        }
+        /* Logo + CTA button + hamburger no longer fit on one row below
+           this width - the drawer's own full-width CTA covers it. */
+        @media (max-width: 400px) {
+          .header-actions > .btn-primary { display: none; }
         }
       `}</style>
     </header>

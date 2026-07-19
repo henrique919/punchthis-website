@@ -78,7 +78,7 @@ export default function ReportsPage() {
               The right report for every situation.
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }}>
+          <div className="report-types-grid">
             {REPORT_TYPES.map((t, i) => (
               <div key={t.name} className="reveal" style={{ transitionDelay: `${i * 80}ms`, background: 'var(--mist)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '28px 24px' }}>
                 <div style={{ width: 36, height: 36, borderRadius: 10, background: 'var(--cobalt-soft)', color: 'var(--cobalt)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, fontSize: 14, fontWeight: 700 }}>
@@ -90,7 +90,10 @@ export default function ReportsPage() {
             ))}
           </div>
         </div>
-        <style>{`@media(max-width:768px){.reports-page-hero .container > div:last-child > div { grid-template-columns:1fr!important; }}`}</style>
+        <style>{`
+          .report-types-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+          @media (max-width: 640px) { .report-types-grid { grid-template-columns: 1fr; } }
+        `}</style>
       </section>
 
       {/* Report contents */}
@@ -102,7 +105,7 @@ export default function ReportsPage() {
               Choose exactly what each report includes.
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
             {REPORT_SECTIONS.map((s, i) => (
               <div key={s.label} className="reveal" style={{ transitionDelay: `${i * 60}ms`, background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '20px 22px', display: 'flex', alignItems: 'flex-start', gap: 14 }}>
                 <Check size={16} strokeWidth={3} color="var(--cobalt)" style={{ marginTop: 2, flexShrink: 0 }} aria-hidden="true" />

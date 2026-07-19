@@ -49,6 +49,13 @@
 /* 2. Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html, body {
+  /* Safety guard against residual horizontal overflow (e.g. decorative
+     phone-mockup hardware buttons that intentionally bleed a few percent
+     past their own box) - not a substitute for fixing overflow at its
+     source. Structural offenders are fixed at the component. */
+  overflow-x: clip;
+}
 body {
   font-family: var(--font-body);
   font-size: 16px;
