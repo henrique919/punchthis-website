@@ -4,6 +4,7 @@ import { useReveal } from '../hooks/useReveal'
 import WorkflowSection from '../components/WorkflowSection'
 import FinalCTA from '../components/FinalCTA'
 import AudienceSection from '../components/AudienceSection'
+import Seo from '../components/Seo'
 
 const LIFECYCLE = [
   { status: 'Open',        color: '#C93B3B', bg: '#FBEBEB', desc: 'Issue raised on site. Photo captured, markup applied, location set.' },
@@ -16,6 +17,11 @@ export default function HowItWorks() {
   const ref = useReveal()
   return (
     <>
+      <Seo
+        title="How it works"
+        description="From first photo to final report — see the four-step PunchThis workflow and the issue lifecycle behind it."
+        path="/how-it-works"
+      />
       {/* Page hero */}
       <section className="hiw-hero dark-hero" aria-labelledby="hiw-heading">
         <div className="page-hero-grid" aria-hidden="true" />

@@ -13,6 +13,7 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Support from './pages/Support'
 import DataDeletion from './pages/DataDeletion'
+import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/support" element={<Support />} />
           <Route path="/data-deletion" element={<DataDeletion />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

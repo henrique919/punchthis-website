@@ -28,6 +28,7 @@ export default function Privacy() {
       intro="What PunchThis stores, where it lives, and what happens when you delete it."
       updated={LAST_UPDATED}
       sections={SECTIONS}
+      path="/privacy"
     />
   )
 }

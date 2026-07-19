@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Info } from 'lucide-react'
 import { PROVISIONAL_NOTICE } from '../config/legalContent'
+import Seo from './Seo'
 
 /**
  * Shared chrome for the four legal/support routes. `sections` is an array
  * of { title, body } — body may contain \n\n for paragraph breaks.
  */
-export default function LegalLayout({ eyebrow, title, intro, updated, sections, showProvisionalNotice = true }) {
+export default function LegalLayout({ eyebrow, title, intro, updated, sections, showProvisionalNotice = true, path, seoDescription }) {
   return (
     <>
+      <Seo title={title} description={seoDescription || intro} path={path} />
       <section className="legal-hero dark-hero" aria-labelledby="legal-heading">
         <div className="page-hero-grid" aria-hidden="true" />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>

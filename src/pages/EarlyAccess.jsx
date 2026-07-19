@@ -3,6 +3,7 @@ import { useReveal } from '../hooks/useReveal'
 import { SITE } from '../config/content'
 import { track } from '../lib/analytics'
 import { Check, ArrowRight, AlertCircle } from 'lucide-react'
+import Seo from '../components/Seo'
 
 const BENEFITS = [
   'First to know when the app launches',
@@ -106,6 +107,11 @@ export default function EarlyAccess() {
 
   return (
     <section className="ea-section" aria-labelledby="ea-heading">
+      <Seo
+        title="Get early access"
+        description="Register for PunchThis early access — be first to try the beta when it opens."
+        path="/early-access"
+      />
       <div className="ea-bg" aria-hidden="true" />
       <div ref={ref} className="container ea-inner">
         <div className="reveal ea-intro">

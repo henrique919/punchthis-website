@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Check } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 import PhoneMockup from '../components/PhoneMockup'
-import ReportBuilderScreen from '../screens/ReportBuilderScreen'
-import PDFPreviewScreen from '../screens/PDFPreviewScreen'
 import FinalCTA from '../components/FinalCTA'
+import Seo from '../components/Seo'
+import reportBuilderImg from '../assets/app-screens/report-builder.png'
+import reportPreviewImg from '../assets/app-screens/report-preview.png'
 
 const REPORT_SECTIONS = [
   { label: 'Cover page',          desc: 'Project name, date, inspector and client details.' },
@@ -28,6 +29,11 @@ export default function ReportsPage() {
 
   return (
     <>
+      <Seo
+        title="Reports"
+        description="Turn site evidence into a client-ready PDF report. Choose contents, include annotated photos, and preview before you share."
+        path="/reports"
+      />
       {/* Hero */}
       <section className="reports-page-hero dark-hero" aria-labelledby="reports-page-heading">
         <div className="page-hero-grid" aria-hidden="true" />
@@ -47,9 +53,9 @@ export default function ReportsPage() {
           </div>
           <div className="reveal report-hero-phones" ref={ref1}>
             <div style={{ transform: 'rotate(-3deg)', filter: 'brightness(0.88)', marginRight: -16 }}>
-              <PhoneMockup maxWidth={195} label="Report builder screen"><ReportBuilderScreen /></PhoneMockup>
+              <PhoneMockup maxWidth={195} label="Real PunchThis report builder screen" image={reportBuilderImg} />
             </div>
-            <PhoneMockup maxWidth={210} label="PDF preview screen"><PDFPreviewScreen /></PhoneMockup>
+            <PhoneMockup maxWidth={210} label="Real PunchThis PDF report preview screen" image={reportPreviewImg} />
           </div>
         </div>
         <style>{`

@@ -5,6 +5,7 @@ import { useReveal } from '../hooks/useReveal'
 import PhoneMockup from '../components/PhoneMockup'
 import MarkupScreen from '../screens/MarkupScreen'
 import FinalCTA from '../components/FinalCTA'
+import Seo from '../components/Seo'
 
 const TOOLS = [
   { id: 'arrow',  label: 'Arrow',  icon: '↗',
@@ -111,6 +112,11 @@ export default function MarkupPage() {
   const ref = useReveal()
   return (
     <>
+      <Seo
+        title="Markup"
+        description="Arrows, circles, boxes, numbered markers and freehand pen — mark up defect photos directly on site with PunchThis."
+        path="/markup"
+      />
       {/* Hero */}
       <section className="markup-page-hero dark-hero" aria-labelledby="markup-page-heading">
         <div className="page-hero-grid" aria-hidden="true" />

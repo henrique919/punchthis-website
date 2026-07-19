@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import Hero from '../components/Hero'
 import TrustStrip from '../components/TrustStrip'
 import MarkupShowcase from '../components/MarkupShowcase'
@@ -16,6 +17,10 @@ const homeFAQ = FAQ_ITEMS.flatMap((cat) => cat.items).slice(0, 6)
 export default function Home() {
   return (
     <>
+      <Seo
+        description="Capture site issues, mark up defects, assign work and create professional inspection reports with PunchThis."
+        path="/"
+      />
       <Hero />
       <TrustStrip />
       <MarkupShowcase />

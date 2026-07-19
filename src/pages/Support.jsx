@@ -28,6 +28,8 @@ export default function Support() {
         intro={SUPPORT_INTRO}
         sections={SECTIONS}
         showProvisionalNotice={false}
+        path="/support"
+        seoDescription="Get help with PunchThis — contact support, report a bug, or ask a question."
       />
       <section className="section support-links" style={{ background: 'var(--mist)' }}>
         <div className="container" style={{ maxWidth: 720, display: 'flex', gap: 16, flexWrap: 'wrap' }}>

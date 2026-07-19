@@ -28,6 +28,7 @@ export default function DataDeletion() {
       intro="PunchThis is local-first, so deleting your data is something you do on your device — not a request you send us."
       updated={LAST_UPDATED}
       sections={SECTIONS}
+      path="/data-deletion"
     />
   )
 }

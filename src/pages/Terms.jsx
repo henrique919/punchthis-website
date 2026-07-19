@@ -41,6 +41,7 @@ export default function Terms() {
       intro="Plain-language terms for using PunchThis during early access."
       updated={LAST_UPDATED}
       sections={SECTIONS}
+      path="/terms"
     />
   )
 }

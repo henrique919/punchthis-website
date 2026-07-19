@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Camera, Pencil, BarChart2, MapPin, CheckCircle, FileText } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 import PhoneMockup from '../components/PhoneMockup'
-import MarkupScreen from '../screens/MarkupScreen'
-import CaptureScreen from '../screens/CaptureScreen'
-import IssueDetailScreen from '../screens/IssueDetailScreen'
-import ReportBuilderScreen from '../screens/ReportBuilderScreen'
 import Benefits from '../components/Benefits'
 import Differentiation from '../components/Differentiation'
 import AudienceSection from '../components/AudienceSection'
 import FinalCTA from '../components/FinalCTA'
+import Seo from '../components/Seo'
+import captureSessionImg from '../assets/app-screens/capture-session.png'
+import markupStudioImg from '../assets/app-screens/markup-studio.png'
+import issueDetailImg from '../assets/app-screens/issue-detail.png'
+import reportBuilderImg from '../assets/app-screens/report-builder.png'
 
 function PageHero() {
   const ref = useReveal()
@@ -32,9 +33,9 @@ function PageHero() {
         </div>
         <div className="reveal page-hero-phones">
           <div style={{ transform: 'rotate(-3deg)', filter: 'brightness(0.85)', marginRight: -20 }}>
-            <PhoneMockup maxWidth={195} label="Capture session screen"><CaptureScreen /></PhoneMockup>
+            <PhoneMockup maxWidth={195} label="Real PunchThis capture session screen" image={captureSessionImg} />
           </div>
-          <PhoneMockup maxWidth={230} label="Markup studio screen"><MarkupScreen activeTool="circle" /></PhoneMockup>
+          <PhoneMockup maxWidth={230} label="Real PunchThis markup studio screen" image={markupStudioImg} />
         </div>
       </div>
       <style>{`
@@ -61,13 +62,13 @@ function PageHero() {
   )
 }
 
-function FeatureRow({ title, body, screen, screenLabel, flip = false }) {
+function FeatureRow({ title, body, image, screenLabel, flip = false }) {
   const ref = useReveal()
   return (
     <section ref={ref} className={`feature-row section${flip ? ' flip' : ''}`}>
       <div className="container feature-row-inner">
         <div className="reveal feature-phone">
-          <PhoneMockup maxWidth={240} label={screenLabel}>{screen}</PhoneMockup>
+          <PhoneMockup maxWidth={240} label={screenLabel} image={image} />
         </div>
         <div className="feature-copy">
           <h2 className="reveal feature-title">{title}</h2>
@@ -101,32 +102,37 @@ function FeatureRow({ title, body, screen, screenLabel, flip = false }) {
 export default function Product() {
   return (
     <>
+      <Seo
+        title="Product"
+        description="See how PunchThis connects photo capture, markup, issue tracking and reporting into one phone-first workflow for site inspections."
+        path="/product"
+      />
       <PageHero />
       <FeatureRow
         title="Capture every defect, straight from the camera."
         body="Raise an issue directly from a photo. The image becomes the evidence — location, assignee, priority and status follow naturally, without double-handling information back at a desk."
-        screen={<CaptureScreen />}
-        screenLabel="PunchThis capture session showing issue list"
+        image={captureSessionImg}
+        screenLabel="Real PunchThis capture session showing issue list"
       />
       <FeatureRow
         flip
         title="Mark the exact problem. No ambiguity."
         body="The markup studio puts arrows, circles, boxes, numbered markers and freehand drawing directly on the photo. Every annotation stays permanently attached to the issue — open it a week later and the instruction is still there."
-        screen={<MarkupScreen activeTool="box" />}
-        screenLabel="PunchThis markup studio with box annotation"
+        image={markupStudioImg}
+        screenLabel="Real PunchThis markup studio with box and circle annotations"
       />
       <FeatureRow
         title="Full issue context. Every time."
         body="Each issue carries its annotated photo, location, priority, status and assignee. Nothing gets lost in translation between site and office."
-        screen={<IssueDetailScreen />}
-        screenLabel="PunchThis issue detail showing full context"
+        image={issueDetailImg}
+        screenLabel="Real PunchThis issue detail showing full context"
       />
       <FeatureRow
         flip
         title="Reports that are ready the moment you leave site."
         body="Choose what goes in, preview the full PDF and share it before you reach the car park. Cover page, executive summary, annotated photos — all in the right order."
-        screen={<ReportBuilderScreen />}
-        screenLabel="PunchThis report builder screen"
+        image={reportBuilderImg}
+        screenLabel="Real PunchThis report builder screen"
       />
       <Benefits />
       <Differentiation />

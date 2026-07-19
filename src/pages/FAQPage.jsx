@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 import FinalCTA from '../components/FinalCTA'
+import Seo from '../components/Seo'
 import { FAQ_ITEMS } from '../config/content'
 
 function FAQCategory({ category, items }) {
@@ -43,6 +44,11 @@ export default function FAQPage() {
   const ref = useReveal()
   return (
     <>
+      <Seo
+        title="FAQ"
+        description="Answers about what PunchThis does, who it's for, platform availability and pricing."
+        path="/faq"
+      />
       {/* Hero */}
       <section className="faq-page-hero dark-hero" aria-labelledby="faq-page-heading">
         <div className="page-hero-grid" aria-hidden="true" />
