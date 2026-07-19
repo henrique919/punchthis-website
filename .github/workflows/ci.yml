@@ -25,6 +25,7 @@ jobs:
       - run: npm run build
       - run: npm run check:links
       - run: npm run check:claims
+      - run: npm run check:tokens
       - uses: actions/upload-artifact@v4
         with:
           name: dist

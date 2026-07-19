@@ -19,15 +19,22 @@
   --mist: #F2F4F6;
   --white: #FFFFFF;
 
-  /* Status */
+  /* Status — the base colours (--open/--warning/--review/--success) are
+     decorative/dot/border use only, same as --cobalt. Anything rendered as
+     text (chips, lifecycle labels) must use the *-text variant below,
+     which is darkened to clear 4.5:1 on its matching *-soft background. */
   --open: #C93B3B;
   --open-soft: #FBEBEB;
+  --open-text: #A82C2C;      /* 5.94:1 on --open-soft */
   --warning: #E5A016;
   --warning-soft: #FDF3E0;
+  --warning-text: #92600A;   /* 4.89:1 on --warning-soft - matches the app's amberText token */
   --review: #7B61E0;
   --review-soft: #EEEAFB;
+  --review-text: #5B41C0;    /* matches the app's reviewText token */
   --success: #1E9E5A;
   --success-soft: #E7F3EC;
+  --success-text: #177A46;   /* AA-safe darkening of --success for text-on-soft use */
 
   /* Type */
   --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -206,11 +213,11 @@ ul { list-style: none; }
   border-radius: 50%;
   flex-shrink: 0;
 }
-.chip-open   { background: var(--open-soft);    color: #A82C2C;    } /* darkened from --open (#C93B3B, 4.36:1 on open-soft) to 5.94:1 */
-.chip-warn   { background: var(--warning-soft); color: #92600A;        } /* was #B57709, 3.40:1 - failed AA. #92600A is 4.89:1, matches the app's amberText token */
-.chip-cobalt { background: var(--cobalt-soft);  color: var(--cobalt-deep); }
-.chip-review { background: var(--review-soft);  color: #5B41C0;        }
-.chip-ok     { background: var(--success-soft); color: #177A46;        }
+.chip-open   { background: var(--open-soft);    color: var(--open-text);    }
+.chip-warn   { background: var(--warning-soft); color: var(--warning-text); }
+.chip-cobalt { background: var(--cobalt-soft);  color: var(--cobalt-deep);  }
+.chip-review { background: var(--review-soft);  color: var(--review-text);  }
+.chip-ok     { background: var(--success-soft); color: var(--success-text); }
 
 /* 6. Reveal animations — content is visible by default. The hidden
    starting state is opt-in, scoped under html.js-reveal-ready, which

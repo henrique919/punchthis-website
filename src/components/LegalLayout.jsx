@@ -64,11 +64,11 @@ export default function LegalLayout({ eyebrow, title, intro, updated, sections, 
           .legal-notice {
             display: flex; align-items: flex-start; gap: 10px;
             background: var(--warning-soft); border: 1px solid var(--warning);
-            color: #92600A; border-radius: var(--radius-md);
+            color: var(--warning-text); border-radius: var(--radius-md);
             padding: 14px 16px; font-size: 13px; font-weight: 600; line-height: 1.5;
             margin-bottom: 44px;
           }
-          .legal-notice svg { flex-shrink: 0; margin-top: 1px; color: #92600A; }
+          .legal-notice svg { flex-shrink: 0; margin-top: 1px; color: var(--warning-text); }
           .legal-section { margin-bottom: 36px; }
           .legal-section-title { font-size: 19px; color: var(--ink); margin-bottom: 10px; }
           .legal-section-body { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 10px; }

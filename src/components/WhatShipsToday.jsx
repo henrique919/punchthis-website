@@ -77,8 +77,8 @@ export default function WhatShipsToday() {
           display: flex; align-items: center; gap: 8px;
           font-size: 16px; font-weight: 700; margin-bottom: 18px;
         }
-        .wst-title-shipped { color: #177A46; }
-        .wst-title-beta { color: #92600A; }
+        .wst-title-shipped { color: var(--success-text); }
+        .wst-title-beta { color: var(--warning-text); }
         .wst-title-not-yet { color: var(--steel-text); }
         .wst-list { display: flex; flex-direction: column; gap: 12px; }
         .wst-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; }
