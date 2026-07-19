@@ -20,7 +20,8 @@ export const NAV = {
     { label: 'How it works', href: '/how-it-works' },
     { label: 'FAQ',          href: '/faq' },
   ],
-  signInUrl: '#',           // Update when auth is live
+  // No "Sign in" — PunchThis has no accounts or web authentication yet.
+  // Add it back once there's a real destination to send visitors to.
   ctaUrl: '/early-access',
   ctaLabel: 'Get early access',
 }
@@ -171,8 +172,9 @@ export const FOOTER = {
     { label: 'FAQ',          href: '/faq' },
   ],
   legalLinks: [
-    { label: 'Privacy policy',  href: '#' },
-    { label: 'Terms of service',href: '#' },
-    { label: 'Cookie policy',   href: '#' },
+    { label: 'Privacy policy',   href: '/privacy' },
+    { label: 'Terms of service', href: '/terms' },
+    { label: 'Support',          href: '/support' },
+    { label: 'Data deletion',    href: '/data-deletion' },
   ],
 }

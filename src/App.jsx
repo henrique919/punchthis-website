@@ -9,6 +9,10 @@ import ReportsPage from './pages/ReportsPage'
 import HowItWorks from './pages/HowItWorks'
 import FAQPage from './pages/FAQPage'
 import EarlyAccess from './pages/EarlyAccess'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import Support from './pages/Support'
+import DataDeletion from './pages/DataDeletion'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -30,6 +34,10 @@ export default function App() {
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/early-access" element={<EarlyAccess />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/data-deletion" element={<DataDeletion />} />
         </Routes>
       </main>
       <Footer />

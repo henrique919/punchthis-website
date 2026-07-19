@@ -44,7 +44,6 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <Link to={NAV.signInUrl} className="sign-in-link">Sign in</Link>
           <Link to={NAV.ctaUrl} className="btn btn-primary" style={{ padding: '10px 20px', fontSize: 14 }}>
             {NAV.ctaLabel}
           </Link>
@@ -107,7 +106,6 @@ export default function Header() {
         .site-header.dark-mode .nav-link { color: #CBD2D8; }
         .site-header.dark-mode .nav-link:hover,
         .site-header.dark-mode .nav-link.active { color: #fff; }
-        .site-header.dark-mode .sign-in-link { color: #8B97A1; }
         .site-header.dark-mode .hamburger { color: #fff; }
 
         .header-inner {
@@ -129,8 +127,6 @@ export default function Header() {
         .nav-link.active { color: var(--ink); background: var(--mist); }
 
         .header-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
-        .sign-in-link { font-size: 14px; font-weight: 600; color: var(--muted); transition: color 0.15s; }
-        .sign-in-link:hover { color: var(--ink); }
 
         .hamburger {
           display: none; align-items: center; justify-content: center;
@@ -156,7 +152,6 @@ export default function Header() {
 
         @media (max-width: 768px) {
           .desktop-nav { display: none; }
-          .sign-in-link { display: none; }
           .hamburger { display: flex; }
           .site-header.dark-mode { background: rgba(18,24,31,0.96); }
         }
