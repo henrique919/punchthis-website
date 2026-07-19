@@ -4,8 +4,11 @@
  * src/config/media-manifest.js) or an SVG screen component as `children`.
  * `maxWidth` controls the rendered width (default 240px).
  * `label` — accessible aria-label for the device.
+ * `priority` — set true for above-the-fold instances (the hero) so the
+ * image loads eagerly instead of lazily; lazy-loading an LCP candidate
+ * delays it and directly hurts the LCP budget.
  */
-export default function PhoneMockup({ children, image, maxWidth = 240, label = 'App screenshot', style = {} }) {
+export default function PhoneMockup({ children, image, maxWidth = 240, label = 'App screenshot', style = {}, priority = false }) {
   // 390 × 844 native ratio
   const ratio = 844 / 390
 
@@ -65,7 +68,8 @@ export default function PhoneMockup({ children, image, maxWidth = 240, label = '
                 alt=""
                 aria-hidden="true"
                 style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover' }}
-                loading="lazy"
+                loading={priority ? 'eager' : 'lazy'}
+                fetchPriority={priority ? 'high' : 'auto'}
                 decoding="async"
               />
             ) : (

@@ -80,15 +80,15 @@ export default function Hero() {
         <div className="hero-phones" aria-label="Real PunchThis screenshots — capture session, markup studio and PDF report preview, shown with the app's sample data">
           {/* Left phone (back) — Capture */}
           <div className="phone-left hero-reveal">
-            <PhoneMockup maxWidth={195} label="Real PunchThis capture session screen" image={captureSessionImg} />
+            <PhoneMockup maxWidth={195} label="Real PunchThis capture session screen" image={captureSessionImg} priority />
           </div>
           {/* Centre phone (front) — Markup */}
           <div className="phone-centre hero-reveal">
-            <PhoneMockup maxWidth={240} label="Real PunchThis markup studio screen with annotations" image={markupStudioImg} />
+            <PhoneMockup maxWidth={240} label="Real PunchThis markup studio screen with annotations" image={markupStudioImg} priority />
           </div>
           {/* Right phone (back) — PDF */}
           <div className="phone-right hero-reveal">
-            <PhoneMockup maxWidth={195} label="Real PunchThis PDF report preview screen" image={reportPreviewImg} />
+            <PhoneMockup maxWidth={195} label="Real PunchThis PDF report preview screen" image={reportPreviewImg} priority />
           </div>
         </div>
       </div>
