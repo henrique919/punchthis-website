@@ -8,9 +8,9 @@ import FinalCTA from '../components/FinalCTA'
 
 const REPORT_SECTIONS = [
   { label: 'Cover page',          desc: 'Project name, date, inspector and client details.' },
-  { label: 'Executive summary',   desc: 'Issue counts broken down by status — open, overdue, verified.' },
+  { label: 'Executive summary',   desc: 'Issue counts broken down by status — open, assigned, in progress and completed.' },
   { label: 'Annotated photos',    desc: 'Full-resolution images with all markup intact.' },
-  { label: 'Include completed',   desc: 'Optionally include verified and closed issues for a full record.' },
+  { label: 'Include completed',   desc: 'Optionally include completed issues for a full record.' },
   { label: 'Signature section',   desc: 'Approval block for sign-off on handovers and practical completion.' },
   { label: 'Group by Location',   desc: 'Organise issues by zone, level or area for easier navigation.' },
 ]

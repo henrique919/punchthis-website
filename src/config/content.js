@@ -78,9 +78,9 @@ export const WORKFLOW_STEPS = [
     screen: 'issue',
   },
   {
-    number: '04', label: 'Verify & report',
+    number: '04', label: 'Complete & report',
     title: 'Close out and share',
-    body: 'When the work is done, verify it on site. Export a clean, professional report before you leave.',
+    body: 'When the work is done, mark it complete on site. Export a clean, professional report before you leave.',
     screen: 'report',
   },
 ]
@@ -88,9 +88,9 @@ export const WORKFLOW_STEPS = [
 export const BENEFITS = [
   { icon: 'Camera',      title: 'Photo-first issue capture',    body: 'Raise an issue directly from a photo. No separate notes, no data entry back at the office.' },
   { icon: 'Pencil',      title: 'Clear visual markup',          body: 'Arrows, circles, boxes and numbered markers—applied directly to the evidence photo.' },
-  { icon: 'BarChart2',   title: 'Priority and status tracking', body: 'Open, assigned, in progress, for review, verified. Every issue moves through a clear close-out loop.' },
+  { icon: 'BarChart2',   title: 'Priority and status tracking', body: 'Open, assigned, in progress, completed. Every issue moves through a clear close-out loop.' },
   { icon: 'MapPin',      title: 'Location and assignee context',body: 'Every issue carries its location, responsible trade and priority—no lost context.' },
-  { icon: 'CheckCircle', title: 'Verification and close-out',   body: 'Confirm completed work on site. Close the loop with evidence, not assumptions.' },
+  { icon: 'CheckCircle', title: 'Completion and close-out',     body: 'Confirm completed work on site. Close the loop with evidence, not assumptions.' },
   { icon: 'FileText',    title: 'Professional PDF reporting',   body: 'Choose contents, include annotated photos and preview the finished report before sharing.' },
 ]
 
@@ -108,7 +108,7 @@ export const REPORTS_SECTION = {
 
 export const DIFFERENTIATION = {
   headline: 'Built around the complete close-out loop.',
-  flow: ['Capture', 'Mark up', 'Assign', 'Verify', 'Report'],
+  flow: ['Capture', 'Mark up', 'Assign', 'Complete', 'Report'],
   body: 'PunchThis keeps the visual proof, issue context and final report connected from the first photo to close-out.',
   points: [
     'Markup is part of the workflow, not an afterthought.',
@@ -149,7 +149,7 @@ export const FAQ_ITEMS = [
     items: [
       { q: 'Can I mark up photos on site?', a: 'Yes. The markup studio lets you draw arrows, circles, boxes, pen strokes and numbered markers directly on any issue photo. Every annotation is saved with the issue and included in reports.' },
       { q: 'What can be included in a report?', a: 'You can choose from a cover page, executive summary, annotated photos, completed issues, a signature section, and grouping by location. Preview the full PDF before sharing.' },
-      { q: 'How does issue tracking work?', a: 'Each issue moves through a clear status lifecycle: Open → Assigned → In Progress → For Review → Verified. Every issue keeps its photo, markup, priority, location and assignee together throughout.' },
+      { q: 'How does issue tracking work?', a: 'Each issue moves through a clear status lifecycle: Open → Assigned → In Progress → Completed. Every issue keeps its photo, markup, priority, location and assignee together throughout.' },
     ],
   },
   {

@@ -42,10 +42,10 @@ export default function CaptureScreen() {
         { y: 198, photo: '#6B7580', title: 'Cracked plaster to ceiling', loc: 'Level 2 — Unit 6', priority: 'High', status: 'Open', assignee: 'J. Powell · Plastering' },
         { y: 300, photo: '#5A6878', title: 'Window seal incomplete', loc: 'Level 2 — Unit 6', priority: 'Medium', status: 'Assigned', assignee: 'M. Chen · Windows' },
         { y: 402, photo: '#4E5E6C', title: 'Door alignment — bedroom 2', loc: 'Level 2 — Unit 8', priority: 'Low', status: 'In Progress', assignee: 'D. Walsh · Carpentry' },
-        { y: 504, photo: '#68757F', title: 'Paint overspray on skirting', loc: 'Level 3 — Corridor', priority: 'Low', status: 'For Review', assignee: 'R. Singh · Painting' },
+        { y: 504, photo: '#68757F', title: 'Paint overspray on skirting', loc: 'Level 3 — Corridor', priority: 'Low', status: 'Completed', assignee: 'R. Singh · Painting' },
       ].map(({ y, photo, title, loc, priority, status, assignee }) => {
-        const statusColor = status === 'Open' ? '#C93B3B' : status === 'Assigned' ? '#E5A016' : status === 'In Progress' ? '#4C82FF' : '#7B61E0'
-        const statusBg = status === 'Open' ? '#FBEBEB' : status === 'Assigned' ? '#FDF3E0' : status === 'In Progress' ? '#EAF1FF' : '#EEEAFB'
+        const statusColor = status === 'Open' ? '#C93B3B' : status === 'Assigned' ? '#E5A016' : status === 'In Progress' ? '#4C82FF' : '#1E9E5A'
+        const statusBg = status === 'Open' ? '#FBEBEB' : status === 'Assigned' ? '#FDF3E0' : status === 'In Progress' ? '#EAF1FF' : '#E7F3EC'
         const priorityColor = priority === 'High' ? '#C93B3B' : priority === 'Medium' ? '#E5A016' : '#7E8B96'
         const priorityBg = priority === 'High' ? '#FBEBEB' : priority === 'Medium' ? '#FDF3E0' : '#EEF1F3'
         return (

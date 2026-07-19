@@ -47,7 +47,7 @@ export default function ReportBuilderScreen() {
         { label: 'Cover page',             sub: 'Project name, date and inspector', on: true,  y: 196 },
         { label: 'Executive summary',      sub: 'Issue counts by status',           on: true,  y: 262 },
         { label: 'Annotated photos',       sub: 'Full-resolution with markup',      on: true,  y: 328 },
-        { label: 'Include completed',      sub: 'Verified and closed issues',       on: false, y: 394 },
+        { label: 'Include completed',      sub: 'Completed and closed issues',      on: false, y: 394 },
         { label: 'Signature section',      sub: 'Approval and sign-off block',      on: true,  y: 460 },
       ].map(({ label, sub, on, y }) => (
         <g key={y}>

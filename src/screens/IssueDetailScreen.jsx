@@ -91,7 +91,7 @@ export default function IssueDetailScreen() {
       <rect x="28" y="670" width="152" height="44" rx="10" fill="#1C232B"/>
       <text x="104" y="696" fill="#fff" fontSize="13" fontWeight="700" fontFamily="system-ui" textAnchor="middle">Update status</text>
       <rect x="190" y="670" width="152" height="44" rx="10" fill="#4C82FF"/>
-      <text x="266" y="696" fill="#fff" fontSize="13" fontWeight="700" fontFamily="system-ui" textAnchor="middle">Verify &amp; close</text>
+      <text x="266" y="696" fill="#fff" fontSize="13" fontWeight="700" fontFamily="system-ui" textAnchor="middle">Mark complete</text>
 
       {/* Home bar */}
       <rect y="800" width="390" height="44" fill="#fff"/>

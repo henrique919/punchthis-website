@@ -47,9 +47,9 @@ export default function PDFPreviewScreen() {
       <rect x="16" y="279" width="358" height="1" fill="#DDE3E8"/>
       {/* Summary stats */}
       {[
-        { label: '12 Open',    color: '#C93B3B', x: 55 },
-        { label: '3 Overdue',  color: '#E5A016', x: 150 },
-        { label: '16 Verified',color: '#1E9E5A', x: 254 },
+        { label: '12 Open',      color: '#C93B3B', x: 60 },
+        { label: '5 In progress',color: '#4C82FF', x: 170 },
+        { label: '16 Completed', color: '#1E9E5A', x: 300 },
       ].map(({ label, color, x }) => (
         <g key={label}>
           <circle cx={x - 20} cy="252" r="5" fill={color}/>
@@ -65,10 +65,10 @@ export default function PDFPreviewScreen() {
         { y: 312, photo: '#6B7580', title: 'Cracked plaster to ceiling', loc: 'Level 2 — Unit 6', status: 'Open', hasMarkup: true },
         { y: 390, photo: '#5A6878', title: 'Window seal incomplete',      loc: 'Level 2 — Unit 6', status: 'Assigned', hasMarkup: false },
         { y: 468, photo: '#4E5E6C', title: 'Door alignment — bedroom 2',  loc: 'Level 2 — Unit 8', status: 'In Progress', hasMarkup: true },
-        { y: 546, photo: '#68757F', title: 'Paint overspray on skirting', loc: 'Level 3 — Corridor', status: 'For Review', hasMarkup: false },
+        { y: 546, photo: '#68757F', title: 'Paint overspray on skirting', loc: 'Level 3 — Corridor', status: 'Completed', hasMarkup: false },
       ].map(({ y, photo, title, loc, status, hasMarkup }) => {
-        const sc = status === 'Open' ? '#C93B3B' : status === 'Assigned' ? '#E5A016' : status === 'In Progress' ? '#4C82FF' : '#7B61E0'
-        const sb = status === 'Open' ? '#FBEBEB' : status === 'Assigned' ? '#FDF3E0' : status === 'In Progress' ? '#EAF1FF' : '#EEEAFB'
+        const sc = status === 'Open' ? '#C93B3B' : status === 'Assigned' ? '#E5A016' : status === 'In Progress' ? '#4C82FF' : '#1E9E5A'
+        const sb = status === 'Open' ? '#FBEBEB' : status === 'Assigned' ? '#FDF3E0' : status === 'In Progress' ? '#EAF1FF' : '#E7F3EC'
         return (
           <g key={y}>
             <line x1="32" y1={y} x2="358" y2={y} stroke="#DDE3E8" strokeWidth="0.75"/>
