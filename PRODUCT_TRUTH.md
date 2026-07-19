@@ -50,6 +50,7 @@ Every marketing claim on punchthis-website must trace to a row below. Categories
 | User accounts / sign-in exist | **Do not claim** | `docs/launch/DECISIONS.md` L11/L12: "no accounts exist." Marketing "Sign in" link must be removed, not just re-pointed. |
 | iOS and Android apps are in development | **Shipped (in development)** | `expo/app.json`: `com.punchthis.app` bundle/package configured for both platforms. Not yet store-submitted (blocked on name clearance + developer accounts — LP-09/LP-10/LP-11, external). |
 | Currently usable today via invite-only web/PWA early access | **Beta** | `docs/launch/DECISIONS.md` L7: "Gate A ships as controlled web/PWA early access on the existing Render deploy (invite-only, founder-supported)." |
+| iPad / tablet-optimized native app | **Do not claim** | `expo/app.json`: `"supportsTablet": false`. The invite-only web/PWA build will *load* in a tablet browser, but the UI is phone-proportioned (390px design), not a tailored tablet layout — don't show it in a tablet-shaped mockup, that implies a real tablet experience that doesn't exist. |
 | App Store / Play Store listing is live | **Do not claim** | Not yet submitted. |
 | Pricing is announced | **Do not claim** | `docs/launch/DECISIONS.md` L15: hypotheses only ("no paywall built now; pricing never blocks Gate A"). FAQ copy "Pricing has not been announced yet" is correct — keep it. |
 
