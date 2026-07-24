@@ -32,7 +32,7 @@ function upsertLink(rel, href) {
  */
 export default function Seo({ title, description, path = '/', image = '/og-image.png', noindex = false }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} | Site Inspection, Markup & Reporting App`
+    const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} | Punch List, Site Inspection & Report App`
     const url = `${SITE.url}${path}`
     const imageUrl = image.startsWith('http') ? image : `${SITE.url}${image}`
 

@@ -7,7 +7,7 @@ import Seo from '../components/Seo'
 
 const BENEFITS = [
   'First to know when the app launches',
-  'Access to the beta programme',
+  'Access to the beta program',
   'Input on features and workflow',
   'Founder pricing when available',
 ]
@@ -134,7 +134,7 @@ export default function EarlyAccess() {
 
               {!profileDone ? (
                 <form onSubmit={handleProfileSubmit} className="ea-profile-form" aria-label="Optional profile details">
-                  <p className="profile-prompt">Help us prioritise the beta — optional, takes 10 seconds.</p>
+                  <p className="profile-prompt">Help us prioritize the beta — optional, takes 10 seconds.</p>
 
                   <div className="form-group">
                     <label htmlFor="ea-name" className="form-label">Your name</label>
@@ -143,7 +143,7 @@ export default function EarlyAccess() {
                   </div>
                   <div className="form-group">
                     <label htmlFor="ea-role" className="form-label">Your role</label>
-                    <input id="ea-role" type="text" className="form-input" placeholder="Site manager, Building inspector…" value={role}
+                    <input id="ea-role" type="text" className="form-input" placeholder="Superintendent, PM, inspector…" value={role}
                       onChange={(e) => setRole(e.target.value)} disabled={profileStatus === 'submitting'} />
                   </div>
                   <div className="form-group">

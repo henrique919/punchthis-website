@@ -104,12 +104,12 @@ export default function Product() {
     <>
       <Seo
         title="Product"
-        description="See how PunchThis connects photo capture, markup, issue tracking and reporting into one phone-first workflow for site inspections."
+        description="See how PunchThis connects photo capture, markup, punch-list tracking and reporting into one phone-first workflow for site inspections and closeout."
         path="/product"
       />
       <PageHero />
       <FeatureRow
-        title="Capture every defect, straight from the camera."
+        title="Capture every punch item, straight from the camera."
         body="Raise an issue directly from a photo. The image becomes the evidence — location, assignee, priority and status follow naturally, without double-handling information back at a desk."
         image={captureSessionImg}
         screenLabel="Real PunchThis capture session showing issue list"
@@ -130,7 +130,7 @@ export default function Product() {
       <FeatureRow
         flip
         title="Reports that are ready the moment you leave site."
-        body="Choose what goes in, preview the full PDF and share it before you reach the car park. Cover page, executive summary, annotated photos — all in the right order."
+        body="Choose what goes in, preview the full PDF and share it before you get back to the truck. Cover page, executive summary, annotated photos — all in the right order."
         image={reportBuilderImg}
         screenLabel="Real PunchThis report builder screen"
       />
