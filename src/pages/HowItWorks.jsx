@@ -9,7 +9,7 @@ import Seo from '../components/Seo'
 // Same tokens as the equivalent .chip-* classes in global.css - see
 // brand-tokens.mjs for the full status-colour source of truth.
 const LIFECYCLE = [
-  { status: 'Open',        color: 'var(--open-text)',    bg: 'var(--open-soft)',    desc: 'Issue raised on site. Photo captured, markup applied, location set.' },
+  { status: 'Open',        color: 'var(--open-text)',    bg: 'var(--open-soft)',    desc: 'Issue logged on site. Photo captured, markup applied, location set.' },
   { status: 'Assigned',    color: 'var(--warning-text)', bg: 'var(--warning-soft)', desc: 'Responsible trade or person set. Every issue carries who is responsible for it.' },
   { status: 'In Progress', color: 'var(--cobalt-deep)',  bg: 'var(--cobalt-soft)',  desc: 'Work is underway. The issue remains visible on the hit list until closed.' },
   { status: 'Completed',   color: 'var(--success-text)', bg: 'var(--success-soft)', desc: 'Confirmed done on site and marked complete. Captured in the final report.' },
@@ -34,7 +34,7 @@ export default function HowItWorks() {
               From the first photo to the final report.
             </h1>
             <p className="reveal" style={{ fontSize: 18, color: '#9DA9B4', lineHeight: 1.7, maxWidth: 520 }}>
-              PunchThis is built around four steps that connect every part of the site inspection process—from capture to completed close-out.
+              PunchThis is built around four steps that connect every part of the site inspection process—from capture to completed closeout.
             </p>
             <div className="reveal" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', justifyContent: 'center' }}>
               <Link to="/early-access" className="btn btn-primary">Get early access <ArrowRight size={16}/></Link>
@@ -60,7 +60,7 @@ export default function HowItWorks() {
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <p className="section-label">ISSUE LIFECYCLE</p>
             <h2 id="lifecycle-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,3vw,38px)', color: 'var(--ink)', marginTop: 12 }}>
-              Every issue has a clear path to close-out.
+              Every issue has a clear path to closeout.
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 680, margin: '0 auto' }}>

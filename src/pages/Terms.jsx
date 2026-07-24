@@ -17,7 +17,7 @@ const SECTIONS = [
   },
   {
     title: 'Acceptable use',
-    body: 'Use PunchThis for its intended purpose — site inspection documentation and reporting. Don\'t use it to capture or distribute content you don\'t have the right to capture, and don\'t attempt to disrupt, reverse engineer for malicious purposes, or abuse the early-access programme.',
+    body: 'Use PunchThis for its intended purpose — site inspection documentation and reporting. Don\'t use it to capture or distribute content you don\'t have the right to capture, and don\'t attempt to disrupt, reverse engineer for malicious purposes, or abuse the early-access program.',
   },
   {
     title: 'No warranty',

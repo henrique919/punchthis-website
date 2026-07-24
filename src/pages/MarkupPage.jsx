@@ -10,16 +10,16 @@ import Seo from '../components/Seo'
 const TOOLS = [
   { id: 'arrow',  label: 'Arrow',  icon: '↗',
     headline: 'Direct. Unmistakable.',
-    body: 'Draw an arrow from any angle to point precisely at the defect. The direction and length communicate urgency without a single word.' },
+    body: 'Draw an arrow from any angle to point precisely at the problem. The direction and length communicate urgency without a single word.' },
   { id: 'circle', label: 'Circle', icon: '○',
-    headline: 'Ring the fault area.',
-    body: 'Circle a crack, stain or surface defect to show its full extent. Useful when the problem is a zone rather than a point.' },
+    headline: 'Ring the problem area.',
+    body: 'Circle a crack, stain or surface issue to show its full extent. Useful when the problem is a zone rather than a point.' },
   { id: 'box',    label: 'Box',    icon: '□',
     headline: 'Frame a surface or panel.',
     body: 'Box selection works best for wall panels, floor sections and areas that need to be fully replaced or treated.' },
   { id: 'number', label: 'Number', icon: '#',
-    headline: 'Sequence multiple defects.',
-    body: 'Number markers let you catalogue several issues in a single photo and reference them in your notes — one image, full clarity.' },
+    headline: 'Sequence multiple items.',
+    body: 'Number markers let you catalog several issues in a single photo and reference them in your notes — one image, full clarity.' },
 ]
 
 const PRINCIPLES = [
@@ -114,7 +114,7 @@ export default function MarkupPage() {
     <>
       <Seo
         title="Markup"
-        description="Arrows, circles, boxes, numbered markers and freehand pen — mark up defect photos directly on site with PunchThis."
+        description="Arrows, circles, boxes, numbered markers and freehand pen — mark up punch-list and inspection photos directly on site with PunchThis."
         path="/markup"
       />
       {/* Hero */}
@@ -127,7 +127,7 @@ export default function MarkupPage() {
               Point to the problem.<br />Not just the photo.
             </h1>
             <p className="reveal" style={{ fontSize: 18, color: '#9DA9B4', lineHeight: 1.7, maxWidth: 520 }}>
-              The PunchThis markup studio gives you every tool you need to make a defect unmistakable — directly on the evidence photo, before you leave site.
+              The PunchThis markup studio gives you every tool you need to make a problem unmistakable — directly on the evidence photo, before you leave the site.
             </p>
             <div className="reveal" style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <Link to="/early-access" className="btn btn-primary">Get early access <ArrowRight size={16}/></Link>

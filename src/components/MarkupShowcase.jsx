@@ -7,10 +7,10 @@ import MarkupScreen from '../screens/MarkupScreen'
 import { MARKUP_SECTION } from '../config/content'
 
 const TOOLS = [
-  { id: 'arrow',  label: 'Arrow',  desc: 'Direct attention to the precise fault location.' },
+  { id: 'arrow',  label: 'Arrow',  desc: 'Direct attention to the precise problem location.' },
   { id: 'circle', label: 'Circle', desc: 'Ring the affected area so nothing is missed.' },
   { id: 'box',    label: 'Box',    desc: 'Frame a zone — useful for surface areas and panels.' },
-  { id: 'number', label: 'Number', desc: 'Sequence multiple defects in one photo.' },
+  { id: 'number', label: 'Number', desc: 'Sequence multiple items in one photo.' },
 ]
 
 export default function MarkupShowcase() {

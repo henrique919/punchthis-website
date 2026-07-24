@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Seo
-        description="Capture site issues, mark up defects, assign work and create professional inspection reports with PunchThis."
+        description="The punch list app that writes the report for you. Capture punch items, mark up photos, track issues and send professional PDF inspection reports from your phone."
         path="/"
       />
       <Hero />

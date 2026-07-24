@@ -12,14 +12,14 @@ const REPORT_SECTIONS = [
   { label: 'Executive summary',   desc: 'Issue counts broken down by status — open, assigned, in progress and completed.' },
   { label: 'Annotated photos',    desc: 'Full-resolution images with all markup intact.' },
   { label: 'Include completed',   desc: 'Optionally include completed issues for a full record.' },
-  { label: 'Signature section',   desc: 'Approval block for sign-off on handovers and practical completion.' },
-  { label: 'Group by Location',   desc: 'Organise issues by zone, level or area for easier navigation.' },
+  { label: 'Signature section',   desc: 'Approval block for sign-off on handovers and closeout.' },
+  { label: 'Group by Location',   desc: 'Organize issues by zone, floor or area for easier navigation.' },
 ]
 
 const REPORT_TYPES = [
   { name: 'Site walk',     desc: 'A quick daily or weekly inspection record — focused, light, fast to produce.' },
   { name: 'Client report', desc: 'A full, professional report for clients: cover page, summary, annotated evidence, all sections.' },
-  { name: 'Handover',      desc: 'A completion-focused report for practical completion and sign-off, with signature section.' },
+  { name: 'Handover',      desc: 'A closeout-focused report for substantial completion and final sign-off, with a signature section.' },
 ]
 
 export default function ReportsPage() {
@@ -44,7 +44,7 @@ export default function ReportsPage() {
               Turn site evidence into<br />a client-ready report.
             </h1>
             <p className="reveal" style={{ fontSize: 18, color: '#9DA9B4', lineHeight: 1.7, maxWidth: 500, marginBottom: 28 }}>
-              Choose the contents, include annotated photos, organise by location and preview the finished PDF before you share it.
+              Choose the contents, include annotated photos, organize by location and preview the finished PDF before you share it.
             </p>
             <div className="reveal" style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <Link to="/early-access" className="btn btn-primary">Get early access <ArrowRight size={16}/></Link>
