@@ -11,6 +11,7 @@ import Home from './pages/Home'
 const Product = lazy(() => import('./pages/Product'))
 const MarkupPage = lazy(() => import('./pages/MarkupPage'))
 const ReportsPage = lazy(() => import('./pages/ReportsPage'))
+const SampleReport = lazy(() => import('./pages/SampleReport'))
 const HowItWorks = lazy(() => import('./pages/HowItWorks'))
 const FAQPage = lazy(() => import('./pages/FAQPage'))
 const EarlyAccess = lazy(() => import('./pages/EarlyAccess'))
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/product" element={<Product />} />
             <Route path="/markup" element={<MarkupPage />} />
             <Route path="/reports" element={<ReportsPage />} />
+            <Route path="/sample-report" element={<SampleReport />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/early-access" element={<EarlyAccess />} />

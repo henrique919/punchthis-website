@@ -16,6 +16,10 @@ const SECTIONS = [
     body: 'You own the photos, annotations, project details and reports you create in PunchThis. We don\'t claim any rights to them beyond what\'s needed to run the app on your device. PunchThis is local-first — see the Privacy policy for exactly where your data lives.',
   },
   {
+    title: 'Subscriptions and billing',
+    body: 'PunchThis offers optional paid plans (PunchThis Pro) — an auto-renewing subscription and a one-time purchase — sold and billed by the App Store or Google Play, not by us. Subscriptions renew automatically unless canceled at least 24 hours before the current period ends. You can manage or cancel anytime in your App Store or Google Play account settings; the store\'s refund policy applies. We never see or store your card or payment details. Prices are shown in your local currency in the app before you buy.',
+  },
+  {
     title: 'Acceptable use',
     body: 'Use PunchThis for its intended purpose — site inspection documentation and reporting. Don\'t use it to capture or distribute content you don\'t have the right to capture, and don\'t attempt to disrupt, reverse engineer for malicious purposes, or abuse the early-access program.',
   },

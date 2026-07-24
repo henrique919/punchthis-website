@@ -19,7 +19,7 @@ const REPORT_SECTIONS = [
 const REPORT_TYPES = [
   { name: 'Site walk',     desc: 'A quick daily or weekly inspection record — focused, light, fast to produce.' },
   { name: 'Client report', desc: 'A full, professional report for clients: cover page, summary, annotated evidence, all sections.' },
-  { name: 'Handover',      desc: 'A closeout-focused report for substantial completion and final sign-off, with a signature section.' },
+  { name: 'Closeout',      desc: 'A closeout report for substantial completion, turnover and final sign-off, with a signature section.' },
 ]
 
 export default function ReportsPage() {

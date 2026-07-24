@@ -38,7 +38,7 @@ export const HERO = {
   body: 'Capture punch items, mark up the exact issue, assign the fix and send a professional report—before you leave the site.',
   audienceLine: 'For punch lists, site inspections, walkthroughs and closeout—on every trade and every job.',
   primaryCta:  { label: 'Get early access',  href: '/early-access' },
-  secondaryCta:{ label: 'View a sample report', href: '/#sample-report' },
+  secondaryCta:{ label: 'View a sample report', href: '/sample-report' },
   reassurance: 'Built for fast, phone-first field work.',
 }
 
